@@ -1,38 +1,203 @@
-.App {
-  text-align: center;
-}
+/* HEADER START */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container{
+  width: 100%;
+  height: 50px;
   display: flex;
-  flex-direction: column;
+  margin-top: 10px;
+}
+
+.logo-container{
+  width: 20%;
+  height: 50px;
+}
+
+.logo-container img {
+  padding: 0 10px;
+}
+
+.nav-container{
+  width: 60%;
+  height: 50px;
+}
+
+.nav-container ul {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link{
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0 20px 0 20px;
+  text-decoration: none;
+}
+
+.active-navlink{
+  color: #9b0000;
+}
+
+.right-container{
+  display: flex;
+  width: 20%;
+  height: 50px;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.search-icon{
+  width: 50px;
+  background-color: transparent;
+  border: 2px solid rgb(155, 0, 0);
+  color: #9b0000;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.login-button-container {
+  display: flex;
+  margin-left: 20px;
+  background-color: #9b0000;
+  width: 50%;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button-container a{
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.top-shadow{
+  position: fixed;
+  top: 0%;
+  z-index: -1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* HEADER END */
+
+/* REGISTER START*/
+
+.register-container {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.form-container{
+  width: 280px;  
+  padding: 40px;
+  background-color: rgba(126, 11, 11, 0.1);
+  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2{
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+  margin:auto;
+}
+
+.register-form input {
+  display: flex;
+  max-width: 500px;
+  margin: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.input[type=radio]{
+  appearance: none;
+  background-color:transparent;
+  margin: 30px 10px 0 0;
+  color: #9b0000;
+  width: 0.4em;
+  height: 0.4em;
+  border: 0.2em solid currentColor;
+  border-radius: 50%;
+  display: flex;
+}
+
+.radioButton{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.register-button {
+background-color: transparent;
+border: 2px solid  #9b0000;
+color: white;
+font-size: 20px;
+font-weight: 800;
+padding: 13px 50px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 30px;
+cursor: pointer;
+margin-top: 20px;
+}
+
+.register-button button:hover{
+background: #9b0000;
+}
+
+.message {
+margin: 15px 0 0;
+color: #b3b3b3;
+font-size: 12px;
+display: flex;
+justify-content: center;
+}
+
+.message a {
+color: #9b0000;
+text-decoration: none;
+}
+
+.input[type=text]{
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: none;
+border-bottom: 2px solid #9b0000;
+background-color: transparent;
+}
+
+.input[type=password]{
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: none;
+border-bottom: 2px solid #9b0000;
+background-color: transparent;
+}
+
+.register-bgr-img-container{
+  z-index: -2;
+  position: fixed;
+  width: 100%;
+  top: 0%;
+}
+
+/* REGISTER END*/
