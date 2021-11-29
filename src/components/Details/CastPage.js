@@ -1,10 +1,12 @@
+import SideNav from "./SideNav";
+
 export default function CastPage() {
     return (
-        <div className="details-trailer-container">
-            <h1>Cast</h1>
+        <div className="details-cast-container">
+            <SideNav></SideNav>
 
-            <div className="actor-image-container">
-                <img src="" className="actor-image" alt="" />
+            <div className="actor-image">
+                <img src="https://i.pinimg.com/736x/70/fe/50/70fe50132b14717ae8d1b7d7f11f9dbe.jpg" alt="" />
             </div>
 
             <div className="actor-info-container">
@@ -14,9 +16,12 @@ export default function CastPage() {
             </div>
 
             <div className="actor-scroll">
-                <img src="" alt="" />
-                <img src="" alt="" />
-                <img src="" alt="" />
+                <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F968210608%2F960x0.jpg%3Ffit%3Dscale" alt="" height="100px" />
+                <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F968210608%2F960x0.jpg%3Ffit%3Dscale" alt="" height="100px" />
+                <img src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F968210608%2F960x0.jpg%3Ffit%3Dscale" alt="" height="100px" />
+            </div>
+
+            <div className="cast-bgr">
             </div>
 
         </div>

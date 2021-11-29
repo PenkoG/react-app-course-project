@@ -84,6 +84,7 @@
 
 /* HEADER END */
 
+
 /* DETAILS START */
 
 .main-container{
@@ -144,6 +145,54 @@
   color:rgba(255, 255, 255, 0.514);
 }
 /* DETAILS END */
+
+
+/* CAST PAGE START */
+.details-cast-container{
+  width: 90%;
+  height: 100%;
+  display: flex;
+}
+
+.actor-image{
+  background-color: #b3b3b3;
+  width: 45%;
+  height: 800px;
+  display: flex;
+  margin-top: 40px;
+}
+
+.actor-info-container{
+  width: 50%;
+  margin-left: 7%;
+  color:white;
+  margin-top: 20%;
+}
+
+.actor-scroll{
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+.actor-scroll img{
+  padding-right: 10px;
+}
+
+.cast-bgr{
+  background-color: #9b0000;
+  z-index: -2;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+}
+/* CAST PAGE END */
+
+
+/* OVERVIEW PAGE START */
+
+/* OVERVIEW PAGE END */
+
 
 /* FOOTER START */
 
@@ -263,6 +312,7 @@
 
 /* HOMEPAGE END */
 
+
 /* REGISTER START*/
 
 .register-container {
@@ -381,6 +431,7 @@ background-color: transparent;
 
 /* REGISTER END*/
 
+
 /* LOGIN START */
 
 .login-container {
@@ -419,6 +470,7 @@ background-color: transparent;
 }
 
 /* LOGIN END */
+
 
 /* 404 START */
 

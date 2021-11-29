@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import SideNav from "./SideNav";
 
 export default function DetailsTrailer() {
     return (
@@ -13,19 +13,8 @@ export default function DetailsTrailer() {
                         </video >
                     </div>
 
-                    <div className="side-nav-container">
-                        <ul className="side-nav">
-                            <li className="side-nav-trailer" >
-                                <NavLink to="/details/trailer" className="side-nav-trailer">trailer</NavLink>
-                            </li>
-                            <li className="side-nav-cast" >
-                                <NavLink to="/details/cast" className="side-nav-cast">cast</NavLink>
-                            </li>
-                            <li className="side-nav-overview" >
-                                <NavLink to="/details/overview" className="side-nav-overview">overview</NavLink>
-                            </li>
-                        </ul>
-                    </div>
+                    <SideNav></SideNav>
+
                 </div>
 
                 <div className="footer-container">
