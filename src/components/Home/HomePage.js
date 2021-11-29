@@ -16,14 +16,16 @@ export default function HomePage() {
                             </div>
 
                             <h2 className="movie-headline">LOREM IPSUM DOLAR SIT</h2>
+                            <p className="movie-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo quidem atque omnis, suscipit rerum sunt quod aperiam debitis id.</p>
 
                             <div className="rating-container">
-                                <p>Rating</p>
+                                <p>Rating:</p>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
                             </div>
-                            <div className="bookmark-container">
-                                {/* ////TODO: to add bookmark */}
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -41,9 +43,15 @@ export default function HomePage() {
                             </div>
 
                             <h2 className="movie-headline">LOREM IPSUM DOLAR SIT</h2>
+                            <p className="movie-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio illo quidem atque omnis, suscipit rerum sunt quod aperiam debitis id.</p>
 
                             <div className="rating-container">
-                                <p>Rating</p>
+                                <p>Rating:</p>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
+                                <i className="far fa-star"></i>
                             </div>
 
                         </div>

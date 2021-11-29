@@ -6,7 +6,9 @@ import LoginPage from './components/Login/LoginPage';
 import RegisterPage from './components/Register/RegisterPage';
 import MyListPage from './components/MyList/MyListPage';
 import HomePage from './components/Home/HomePage';
-import DetailsTrailer from './components/Details/DetailsTrailer';
+import DetailsPage from './components/Details/DetailsPage';
+import OverviewPage from "./components/Details/OverviewPage";
+import CastPage from "./components/Details/CastPage";
 import CreatePage from './components/Create/CreatePage';
 import Page404 from './components/404/404';
 
@@ -17,11 +19,13 @@ function App() {
       <Header />
 
       <Routes>
+        <Route path="/home" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/my-list" element={<MyListPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/details" element={<DetailsTrailer />} />
+        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/details/cast" element={<CastPage />} />
+        <Route path="/details/overview" element={<OverviewPage />} />
         <Route path="/create" element={<CreatePage />} />
         <Route path="/*" element={<Page404 />} />
       </Routes>
