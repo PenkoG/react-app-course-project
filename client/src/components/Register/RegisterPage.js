@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-
 export default function RegisterPage() {
     let navigate = useNavigate();
 
@@ -22,7 +21,6 @@ export default function RegisterPage() {
             console.log(err);
         }
     };
-
 
     return (
         <>

@@ -8,7 +8,6 @@ import MyListPage from './components/MyList/MyListPage';
 import HomePage from './components/Home/HomePage';
 import DetailsPage from './components/Details/DetailsPage';
 import OverviewPage from "./components/Details/OverviewPage";
-import CastPage from "./components/Details/CastPage";
 import CreatePage from './components/Create/CreatePage';
 import Page404 from './components/404/404';
 
@@ -24,7 +23,6 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/my-list" element={<MyListPage />} />
         <Route path="/details" element={<DetailsPage />} />
-        <Route path="/details/cast" element={<CastPage />} />
         <Route path="/details/overview" element={<OverviewPage />} />
         <Route path="/create" element={<CreatePage />} />
         <Route path="/*" element={<Page404 />} />
