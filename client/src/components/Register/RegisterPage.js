@@ -35,12 +35,6 @@ export default function RegisterPage() {
                         <input className="input" name="email" type="text" placeholder="Email:" />
                         <input className="input" name="password" type="password" placeholder="Password:" />
                         <input className="input" name="re-password" type="password" placeholder="Repeat password:" />
-                        {/* 
-                        <div className="radioButton">
-                            <input type="radio" id="terms" name="terms" value="huey" />
-                            <label className="radioLabel" htmlFor="huey">I accept the terms and conditions.</label>
-                        </div> */}
-
                         <button className="register-button" >REGISTER</button>
 
                         <p className="message">Already have an accout?<Link to="/login"> Login</Link></p>
