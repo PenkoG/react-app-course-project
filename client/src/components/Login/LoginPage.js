@@ -8,11 +8,10 @@ export default function LoginPage() {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-        let userName = formData.get("userName");
+        let username = formData.get("username");
         let password = formData.get("pass");
-
         try {
-            await axios.post("/auth/login", { userName, password });
+            await axios.post("http://localhost:8800/api/auth/login", { username, password });
             navigate("/");
         } catch (err) {
             console.log(err);
@@ -28,7 +27,7 @@ export default function LoginPage() {
                 <div className="form-container">
                     <h2>LOGIN</h2>
                     <form className="login-form" method="POST" onSubmit={onLoginHandler}>
-                        <input className="input" type="text" placeholder="Username:" name="userName" />
+                        <input className="input" type="text" placeholder="Username:" name="username" />
                         <input className="input" type="password" placeholder="Password:" name="pass" />
 
                         <button className="login-button">LOGIN</button>

@@ -15,7 +15,7 @@ export default function RegisterPage() {
         let password = formData.get('password');
 
         try {
-            let result = await axios.post("/auth/register", { name, email, username, password });
+            let result = await axios.post("http://localhost:8800/api/auth/register", { name, email, username, password });
             console.log(result);
             navigate("/login");
         } catch (err) {
