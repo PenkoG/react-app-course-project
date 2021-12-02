@@ -14,8 +14,8 @@ export default function Header() {
                 <ul className="nav-ul" >
                     <NavLink className="nav-link" to="/" >HOME</NavLink>
                     <NavLink className="nav-link" to="/details" >Details</NavLink>
-                    {/* <NavLink className="nav-link" to="/my-list" >MY LIST</NavLink> */}
-                    <NavLink className="nav-link" to="/login" >LOGIN</NavLink>
+                    <NavLink className="nav-link" to="/create" >Create</NavLink>
+                    {/* <NavLink className="nav-link" to="/login" >LOGIN</NavLink> */}
                     <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
                 </ul>
             </nav>
