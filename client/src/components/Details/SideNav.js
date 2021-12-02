@@ -7,9 +7,6 @@ export default function SideNav() {
                 <li className="side-nav-trailer" >
                     <NavLink to="/details" className="side-nav-trailer">trailer</NavLink>
                 </li>
-                <li className="side-nav-cast" >
-                    <NavLink to="/details/cast" className="side-nav-cast">cast</NavLink>
-                </li>
                 <li className="side-nav-overview" >
                     <NavLink to="/details/overview" className="side-nav-overview">overview</NavLink>
                 </li>
