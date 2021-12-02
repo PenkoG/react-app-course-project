@@ -60,12 +60,12 @@ export default function HomePage() {
             </div>
 
             <div className="register-bgr-img-container">
-                <img className="register-bgr-img" src="registerBGR.png" alt="register background image" />
+                <img className="register-bgr-img" src="registerBGR.png" alt="" />
             </div>
         </>
     )
 }
 
-async function getData() {
-    return fetch("http://localhost:3030/data/movies").then(data => data.json());
-}
+// async function getData() {
+//     return fetch("http://localhost:3030/data/movies").then(data => data.json());
+// }

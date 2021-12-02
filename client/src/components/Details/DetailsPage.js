@@ -8,7 +8,7 @@ export default function DetailsTrailer() {
 
                     <div className="video-container">
                         <img className="overlay" src="overlay.png" alt="Overlay" />
-                        <video className="background-video main" autoplay="autoplay" loop muted>
+                        <video className="background-video main" autoPlay="autoplay" loop muted>
                             <source src="venom.mp4" type="video/mp4" />
                         </video >
                     </div>

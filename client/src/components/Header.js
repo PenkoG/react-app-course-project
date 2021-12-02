@@ -5,18 +5,18 @@ export default function Header() {
         <header className="header-container">
 
             <div className="logo-container">
-                <NavLink to="/home">
+                <NavLink to="/">
                     <img src="./logo.png" alt="" width="200px" />
                 </NavLink>
             </div>
 
             <nav className="nav-container">
                 <ul className="nav-ul" >
-                    <NavLink className="nav-link" activeClassName="active-navlink" to="/home" >HOME</NavLink>
-                    <NavLink className="nav-link" activeClassName="active-navlink" to="/details" >Details</NavLink>
-                    {/* <NavLink className="nav-link" activeClassName="active-navlink" to="/my-list" >MY LIST</NavLink> */}
-                    <NavLink className="nav-link" activeClassName="active-navlink" to="/login" >LOGIN</NavLink>
-                    <NavLink className="nav-link" activeClassName="active-navlink" to="/register" >REGISTER</NavLink>
+                    <NavLink className="nav-link" to="/" >HOME</NavLink>
+                    <NavLink className="nav-link" to="/details" >Details</NavLink>
+                    {/* <NavLink className="nav-link" to="/my-list" >MY LIST</NavLink> */}
+                    <NavLink className="nav-link" to="/login" >LOGIN</NavLink>
+                    <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
                 </ul>
             </nav>
 
@@ -31,7 +31,7 @@ export default function Header() {
             </div>
 
             <div className="top-shadow">
-                <img src="topGradient.png" alt="image" />
+                <img src="topGradient.png" alt="" />
             </div>
 
         </header >
