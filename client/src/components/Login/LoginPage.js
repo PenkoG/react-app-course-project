@@ -11,7 +11,8 @@ export default function LoginPage() {
         let username = formData.get("username");
         let password = formData.get("pass");
         try {
-            await axios.post("http://localhost:8800/api/auth/login", { username, password });
+            let { data, ...info } = await axios.post("http://localhost:8800/api/auth/login", { username, password });
+            console.log(data);
             navigate("/");
         } catch (err) {
             console.log(err);
