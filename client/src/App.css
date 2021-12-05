@@ -202,6 +202,21 @@
   color: #9b0000;
 }
 
+.update-button {
+  background-color: transparent;
+  border: 2px solid  #9b0000;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 13px 50px;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  /* margin: auto; */
+  margin-top: 50px;
+  margin-bottom: 20px;
+  }
+
 .overview-bgr-img-container{
   background-color: #080000;
   position: fixed;
