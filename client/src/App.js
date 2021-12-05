@@ -17,30 +17,36 @@ import { UserContext } from './contexts/UserContext';
 
 function App() {
   const [user, setUser] = useState({
-    isAuthorized: false,
+    isAuthenticated: false,
     accessToken: '',
     username: '',
     name: '',
     _id: ''
   });
 
-  const onLogin = (userData) => {
-    setUser({ ...userData, isAuthorized: true })
+  const login = (userData) => {
+    setUser({ ...userData, isAuthenticated: true })
   }
 
   const onLogout = () => {
-
+    setUser({
+      isAuthenticated: false,
+      accessToken: '',
+      username: '',
+      name: '',
+      _id: ''
+    })
   }
 
 
   return (
-    <UserContext.Provider value={true}>
+    <UserContext.Provider value={{ user, login }}>
       <div className="App">
-        <Header username={user.username} isAuthorized={user.isAuthorized} />
+        <Header username={user.username} isAuthenticated={user.isAuthenticated} />
 
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<Logout onLogout={onLogout} />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/my-list" element={<MyListPage />} />

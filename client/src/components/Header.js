@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 
 export default function Header({
-    isAuthorized
+    username,
+    isAuthenticated
 }) {
 
     let guestNavigation = (
         <nav className="nav-container">
             <ul className="nav-ul" >
                 <NavLink className="nav-link" to="/" >HOME</NavLink>
+                <NavLink className="nav-link" to="/login" >LOGIN</NavLink>
                 <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
             </ul>
         </nav>
@@ -19,7 +21,15 @@ export default function Header({
                 <NavLink className="nav-link" to="/" >HOME</NavLink>
                 <NavLink className="nav-link" to="/my-list" >MY LIST</NavLink>
                 <NavLink className="nav-link" to="/create" >CREATE</NavLink>
+                <NavLink className="nav-link" to="/logout" >Logout</NavLink>
+
             </ul>
+            <div className="right-container">
+                <p>Wellcome, {username}</p>
+                {/* <div className="login-button-container">
+                        <NavLink to="/login">LogIn</NavLink>
+                    </div> */}
+            </div>
         </nav>
     )
 
@@ -31,19 +41,9 @@ export default function Header({
                     <img src="./logo.png" alt="" width="200px" />
                 </NavLink>
             </div>
-            {isAuthorized
+            {isAuthenticated
                 ? userNavigation
                 : guestNavigation}
-
-            <div className="right-container">
-                <div className="search-icon">
-                    <i className="fas fa-search"></i>
-                </div>
-
-                <div className="login-button-container">
-                    <NavLink to="/login">LogIn</NavLink>
-                </div>
-            </div>
 
             <div className="top-shadow">
                 <img src="topGradient.png" alt="" />

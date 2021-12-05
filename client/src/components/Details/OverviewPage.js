@@ -1,11 +1,12 @@
 import SideNav from "./SideNav"
 
-import { useEffect, useState, createContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
 
 export default function OverviewPage() {
-    const Context = createContext({});
+    const { user } = useContext(UserContext)
     const [movieData, setMovieData] = useState([]);
     const navigate = useNavigate();
 
@@ -44,10 +45,11 @@ export default function OverviewPage() {
                 <span className="pipe">|</span>
                 <span className="movie-length"> {movieData.duration} </span>
                 <p className="movie-description-overview">{movieData.description}</p>
-                <Link calssName="update-button-container" to={'/update/' + movieData._id} style={{ textDecoration: 'none' }}>
-                    <button className="update-button" onClick={updateMovieHandler} >UPDATE</button>
-
-                </Link>
+                {user.isAuthenticated ?
+                    <Link calssName="update-button-container" to={'/update/' + movieData._id} style={{ textDecoration: 'none' }}>
+                        <button className="update-button" onClick={updateMovieHandler} >UPDATE</button>
+                    </Link>
+                    : ""}
             </div>
 
             <div className="overview-bgr-img-container" scr="OverviewBGR.jpg" alt="">

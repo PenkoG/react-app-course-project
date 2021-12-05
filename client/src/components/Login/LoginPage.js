@@ -1,10 +1,12 @@
 import { useNavigate, Link } from "react-router-dom";
-// import { useCookies } from 'react-cookie';
+import { useContext } from "react";
 
+import { UserContext } from "../../contexts/UserContext";
 import * as authService from "./../../services/authService";
 
-export default function LoginPage({ onLogin }) {
-    let navigate = useNavigate();
+export default function LoginPage() {
+    const { login } = useContext(UserContext);
+    const navigate = useNavigate();
 
     async function onLoginHandler(e) {
         e.preventDefault();
@@ -18,7 +20,7 @@ export default function LoginPage({ onLogin }) {
 
         authService.login(username, password)
             .then((authData) => {
-                onLogin(authData);
+                login(authData);
                 navigate("/");
             }).catch((err) => {
                 alert(`Wrong password or username`);

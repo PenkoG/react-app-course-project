@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 
 export default function CreatePage() {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext);
 
     const onCreateHandler = async (e) => {
         e.preventDefault();
@@ -12,12 +15,19 @@ export default function CreatePage() {
         let title = formData.get('title');
         let description = formData.get('description');
         let imgUrl = formData.get('imgUrl');
-        let trailerUrl = formData.get('trailerUrl');
+        let videoUrl = formData.get('videoUrl');
         let year = formData.get('year');
         let genre = formData.get('genre');
         let duration = formData.get('duration');
+
+        let data = { title, description, imgUrl, videoUrl, year, genre, duration }
+
         try {
-            await axios.post("http://localhost:8800/api/movies", { title, description, imgUrl, trailerUrl, year, genre, duration });
+            await axios.post("http://localhost:8800/api/movies", data, {
+                headers: {
+                    'X-Authorization': `${user.accessToken}`
+                }
+            });
             navigate("/");
         } catch (err) {
             console.log(err);
@@ -35,7 +45,7 @@ export default function CreatePage() {
                             <input className="input" name="title" type="text" placeholder="Movie title:" />
                             <input className="input" name="description" type="text" placeholder="Description:" />
                             <input className="input" name="imgUrl" type="text" placeholder="imgUrl:" />
-                            <input className="input" name="trailerURL" type="text" placeholder="trailerURL:" />
+                            <input className="input" name="videoUrl" type="text" placeholder="videoUrl:" />
                             <input className="input" name="year" type="text" placeholder="year:" />
                             <input className="input" name="genre" type="text" placeholder="genre:" />
                             <input className="input" name="duration" type="text" placeholder="duration:" />

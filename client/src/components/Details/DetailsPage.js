@@ -1,10 +1,13 @@
 import SideNav from "./SideNav";
 import Video from "./Video";
 
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
 export default function DetailsPage() {
+    const { user } = useContext(UserContext);
     const [movieData, setMovieData] = useState([]);
 
     let movieId = sessionStorage.getItem("movie-id");
@@ -12,7 +15,7 @@ export default function DetailsPage() {
     useEffect(() => {
         (async () => {
             // console.log("mounted");
-            let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
+            let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`, { headers: { 'X-Authorization': `${user.accessToken}` } });
             setMovieData(data)
         })();
     }, []);
