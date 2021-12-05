@@ -1,7 +1,11 @@
 import { useNavigate, Link } from "react-router-dom";
+import { useState } from "react";
+import { useCookies } from 'react-cookie';
 import axios from "axios";
 
-export default function LoginPage() {
+export default function LoginPage({ buttonTXT }) {
+    const [user, setUser] = useState([]);
+    const [cookie, setCookie] = useCookies(['name']);
     let navigate = useNavigate();
 
     async function onLoginHandler(e) {
@@ -10,15 +14,18 @@ export default function LoginPage() {
         let formData = new FormData(e.currentTarget);
         let username = formData.get("username");
         let password = formData.get("pass");
+
+        e.currentTarget.username.value = "";
+        e.currentTarget.pass.value = "";
+
         try {
-            let { data, ...info } = await axios.post("http://localhost:8800/api/auth/login", { username, password });
-            console.log(data);
+            const { data } = await axios.post("http://localhost:8800/api/auth/login", { username, password });
+            setUser(data);
+            setCookie(`User`, `${data.accessToken}`, { path: '/' });
             navigate("/");
         } catch (err) {
+            alert(`Wrong password or username`);
             console.log(err);
-            //Todo: show api respons on client
-
-            //Todo: clear the form 
         }
     }
 
@@ -34,9 +41,7 @@ export default function LoginPage() {
                         <button className="login-button">LOGIN</button>
 
                         <p className="message">Don't have an accout? <Link to="/register"> Register</Link></p>
-
                     </form>
-
                 </div>
             </div>
 
