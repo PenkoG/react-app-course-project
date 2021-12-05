@@ -96,13 +96,18 @@
   z-index: -2;
 }
 
-.video-container{
+.player-wrapper{
+  background-color: #9b0000;
+  position: fixed;
+  top: 0%;
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 
-.background-video{
-  transform: translate(-250px, 0px);
+.video{
+  width: 100%;
+  height: 100%;
 }
 
 .overlay {
@@ -277,11 +282,11 @@
 .movie-card-container{
   background-color: rgba(255, 191, 191, 0.1);
   border-radius: 20px;
-  width: 18%;
-  height: 85%;
+  width: 20%;
   margin: 0 15px 0 15px;
   display: inline-flexbox;   
   text-align: center;
+  box-shadow: 4px 4px 10px  rgba(0, 0, 0, 0.1);
 }
 
 .movie-headline{
@@ -316,12 +321,29 @@
 }
 
 .image-container{
-  background-color: rgb(255, 212, 18);
   border-radius: 20px;
-  width: 90%;
-  height: 200px;
+  width: 94%;
+  height: 400px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 8px;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img{
+  border-radius: 15px;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+
+}
+
+.loading-container{
+  background-color: #9b0000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* HOMEPAGE END */
@@ -330,6 +352,7 @@
 /* REGISTER START*/
 
 .register-container {
+
   width: 100%;
   height: 800px;
   display: flex;
@@ -340,8 +363,8 @@
 .form-container{
   width: 280px;  
   padding: 40px;
-  background-color: rgba(126, 11, 11, 0.1);
-  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 250, 250, 0.1);
+  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px 0 rgba(0, 0, 0, 0.01);
 }
 
 .form-container h2{
@@ -358,11 +381,12 @@
   margin: 10px;
   font-size: 16px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .register-button {
 background-color: transparent;
-border: 2px solid  #9b0000;
+border: 2px solid  #fff2f2;
 color: white;
 font-size: 20px;
 font-weight: 800;
@@ -373,6 +397,7 @@ display: inline-block;
 font-size: 30px;
 cursor: pointer;
 margin-top: 20px;
+margin-left: 15px;
 }
 
 .register-button button:hover{
@@ -388,7 +413,7 @@ justify-content: center;
 }
 
 .message a {
-color: #9b0000;
+color: #fff2f2;
 text-decoration: none;
 }
 
@@ -398,7 +423,7 @@ padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;
 border: none;
-border-bottom: 2px solid #9b0000;
+border-bottom: 2px solid #fff2f2;
 background-color: transparent;
 }
 
@@ -408,8 +433,29 @@ padding: 12px 20px;
 margin: 8px 0;
 box-sizing: border-box;
 border: none;
-border-bottom: 2px solid #9b0000;
+border-bottom: 2px solid #fff2f2;
 background-color: transparent;
+}
+
+.bgr-container{
+
+  /* background: linear-gradient(to right, #4b6cb7, #182848); */
+  /* background: linear-gradient(to top, #16222a, #3a6073); */
+  /* background: linear-gradient(0deg, rgba(15,32,39,1) 0%, rgba(32,58,67,1) 50%, rgba(44,83,100,1) 100%); */
+  /* background: linear-gradient(to top, #232526, #414345); */
+  /* background: linear-gradient(to right, #ff00cc, #333399); */
+  /* background: linear-gradient(to top, #200122, #6f0000); */
+  background: linear-gradient(to top, #141e30, #243b55);
+  /* background: linear-gradient(to top, #8e0e00, #1f1c18); */
+  /* background: linear-gradient(to top, #ff0084, #33001b); */
+  /* background: linear-gradient(to top, #870000, #190a05); */
+  
+  
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  z-index: -1;
 }
 
 .register-bgr-img-container{

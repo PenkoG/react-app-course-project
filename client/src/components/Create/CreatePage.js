@@ -15,9 +15,9 @@ export default function CreatePage() {
         let trailerUrl = formData.get('trailerUrl');
         let year = formData.get('year');
         let genre = formData.get('genre');
-        console.log(`Form Data: ${formData}`);
+        let duration = formData.get('duration');
         try {
-            await axios.post("http://localhost:8800/api/movies", { title, description, imgUrl, trailerUrl, year, genre });
+            await axios.post("http://localhost:8800/api/movies", { title, description, imgUrl, trailerUrl, year, genre, duration });
             navigate("/");
         } catch (err) {
             console.log(err);
@@ -37,6 +37,7 @@ export default function CreatePage() {
                         <input className="input" name="trailerURL" type="text" placeholder="trailerURL:" />
                         <input className="input" name="year" type="text" placeholder="year:" />
                         <input className="input" name="genre" type="text" placeholder="genre:" />
+                        <input className="input" name="duration" type="text" placeholder="duration:" />
                         <button className="register-button" >CREATE</button>
                     </form>
                 </div>
