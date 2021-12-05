@@ -24,27 +24,31 @@ export default function RegisterPage() {
 
     return (
         <>
-            <div className="register-container">
-                <div className="form-container">
-                    <h2>REGISTER</h2>
-                    <form className="register-form" onSubmit={onRegisterHandler}>
-                        <input className="input" name="username" type="text" placeholder="Username:" />
-                        <input className="input" name="name" type="text" placeholder="Name:" />
-                        <input className="input" name="email" type="text" placeholder="Email:" />
-                        <input className="input" name="password" type="password" placeholder="Password:" />
-                        <input className="input" name="re-password" type="password" placeholder="Repeat password:" />
-                        <button className="register-button" >REGISTER</button>
+            <div className="bgr-container">
+                <div className="register-container">
+                    <div className="form-container">
+                        <h2>REGISTER</h2>
+                        <form className="register-form" onSubmit={onRegisterHandler}>
+                            <input className="input" name="username" type="text" placeholder="Username:" />
+                            <input className="input" name="name" type="text" placeholder="Name:" />
+                            <input className="input" name="email" type="text" placeholder="Email:" />
+                            <input className="input" name="password" type="password" placeholder="Password:" />
+                            <input className="input" name="re-password" type="password" placeholder="Repeat password:" />
+                            <button className="register-button" >REGISTER</button>
 
-                        <p className="message">Already have an accout?<Link to="/login"> Login</Link></p>
+                            <p className="message">Already have an accout?<Link to="/login"> Login</Link></p>
 
-                    </form>
+                        </form>
 
+                    </div>
                 </div>
+
+                {/* <div className="register-bgr-img-container">
+                <img className="register-bgr-img" src="registerBGR.png" alt="" />
+            </div> */}
             </div>
 
-            <div className="register-bgr-img-container">
-                <img className="register-bgr-img" src="registerBGR.png" alt="" />
-            </div>
+
         </>
     )
 }
