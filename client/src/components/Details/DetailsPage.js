@@ -1,17 +1,31 @@
 import SideNav from "./SideNav";
+import Video from "./Video";
 
-export default function DetailsTrailer() {
+import { Routes, Route } from 'react-router-dom';
+import ReactPlayer from "react-player";
+import { useState, useEffect } from 'react';
+import axios from "axios";
+import OverviewPage from "./OverviewPage";
+
+export default function DetailsPage() {
+    const [movieData, setMovieData] = useState([]);
+
+    let movieId = sessionStorage.getItem("movie-id");
+
+    useEffect(async () => {
+        console.log("mounted");
+        let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
+        setMovieData(data)
+        console.log(movieData);
+    }, []);
+
+
     return (
         <div className="details-trailer-container">
             <div className="details-trailer-container">
                 <div className="main-container">
 
-                    <div className="video-container">
-                        <img className="overlay" src="overlay.png" alt="Overlay" />
-                        <video className="background-video main" autoPlay="autoplay" loop muted>
-                            <source src="venom.mp4" type="video/mp4" />
-                        </video >
-                    </div>
+                    <Video movie={movieData} />
 
                     <SideNav></SideNav>
 
@@ -28,16 +42,16 @@ export default function DetailsTrailer() {
                         </div>
 
                         <div className="copyrights">
-                            <p>All rights reserved lorem ipsum dolor sit amet consectetur adipisicing elit &copy;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, dolore &copy;</p>
                         </div>
 
                         <div className="footer-logos-container">
-                            <img src="companylogos.png" alt="" width="250px" />
+                            {/* <img src='companyLogos.png' alt="" width="250px" /> */}
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
