@@ -1,22 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react"
 
-// import LoadingPage from "../Loading/LoadingPage";
 import MovieCard from "./MovieCard";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
-    // const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         (async () => {
-            console.log("mounted");
+            // console.log("mounted");
             try {
                 let { data } = await axios.get("http://localhost:8800/api/movies");
-                console.log(data);
-                // setIsLoading(false);
                 setMovies(data);
-                console.log(movies);
+                // console.log(movies);
             } catch (err) {
                 console.log(err);
             }

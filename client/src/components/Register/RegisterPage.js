@@ -15,7 +15,7 @@ export default function RegisterPage() {
 
         try {
             let result = await axios.post("http://localhost:8800/api/auth/register", { name, email, username, password });
-            console.log(result);
+            // console.log(result);
             navigate("/login");
         } catch (err) {
             console.log(err);

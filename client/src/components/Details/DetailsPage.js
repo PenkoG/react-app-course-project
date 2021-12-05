@@ -11,7 +11,7 @@ export default function DetailsPage() {
 
     useEffect(() => {
         (async () => {
-            console.log("mounted");
+            // console.log("mounted");
             let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
             setMovieData(data)
         })();

@@ -42,7 +42,7 @@ export default function UpdatePage() {
         }
 
         let result = await axios.put(`http://localhost:8800/api/movies/${movieId}`, data);
-        console.log(result);
+        // console.log(result);
         navigate(`/details/${movieId}/overview`);
     }
 

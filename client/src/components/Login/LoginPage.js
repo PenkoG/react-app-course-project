@@ -1,11 +1,9 @@
 import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
-import { useCookies } from 'react-cookie';
-import axios from "axios";
+// import { useCookies } from 'react-cookie';
 
-export default function LoginPage({ buttonTXT }) {
-    const [user, setUser] = useState([]);
-    const [cookie, setCookie] = useCookies(['name']);
+import * as authService from "./../../services/authService";
+
+export default function LoginPage({ onLogin }) {
     let navigate = useNavigate();
 
     async function onLoginHandler(e) {
@@ -18,15 +16,14 @@ export default function LoginPage({ buttonTXT }) {
         e.currentTarget.username.value = "";
         e.currentTarget.pass.value = "";
 
-        try {
-            const { data } = await axios.post("http://localhost:8800/api/auth/login", { username, password });
-            setUser(data);
-            setCookie(`User`, `${data.accessToken}`, { path: '/' });
-            navigate("/");
-        } catch (err) {
-            alert(`Wrong password or username`);
-            console.log(err);
-        }
+        authService.login(username, password)
+            .then((authData) => {
+                onLogin(authData);
+                navigate("/");
+            }).catch((err) => {
+                alert(`Wrong password or username`);
+                console.log(err);
+            })
     }
 
     return (

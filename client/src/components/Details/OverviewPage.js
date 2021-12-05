@@ -14,12 +14,12 @@ export default function OverviewPage() {
 
 
     useEffect(() => {
-        console.log("mounted");
+        // console.log("mounted");
         (async () => {
             let { ...data } = await axios.get(`http://localhost:8800/api/movies/find/${id}`);
             let parsedData = data.data;
             setMovieData(parsedData);
-            console.log(movieData);
+            // console.log(movieData);
         })()
 
     }, []);

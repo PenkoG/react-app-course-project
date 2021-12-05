@@ -1,6 +1,28 @@
 import { NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function Header({
+    isAuthorized
+}) {
+
+    let guestNavigation = (
+        <nav className="nav-container">
+            <ul className="nav-ul" >
+                <NavLink className="nav-link" to="/" >HOME</NavLink>
+                <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
+            </ul>
+        </nav>
+    )
+
+    let userNavigation = (
+        <nav className="nav-container">
+            <ul className="nav-ul" >
+                <NavLink className="nav-link" to="/" >HOME</NavLink>
+                <NavLink className="nav-link" to="/my-list" >MY LIST</NavLink>
+                <NavLink className="nav-link" to="/create" >CREATE</NavLink>
+            </ul>
+        </nav>
+    )
+
     return (
         <header className="header-container">
 
@@ -9,14 +31,9 @@ export default function Header() {
                     <img src="./logo.png" alt="" width="200px" />
                 </NavLink>
             </div>
-
-            <nav className="nav-container">
-                <ul className="nav-ul" >
-                    <NavLink className="nav-link" to="/" >HOME</NavLink>
-                    <NavLink className="nav-link" to="/create" >CREATE</NavLink>
-                    <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
-                </ul>
-            </nav>
+            {isAuthorized
+                ? userNavigation
+                : guestNavigation}
 
             <div className="right-container">
                 <div className="search-icon">
