@@ -1,12 +1,12 @@
 import SideNav from "./SideNav"
-import UpdatePage from "../Update/UpdatePage";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 export default function OverviewPage() {
-    const [movieData, setMovieData] = useState({});
+    const Context = createContext({});
+    const [movieData, setMovieData] = useState([]);
     const navigate = useNavigate();
 
     let id = sessionStorage.getItem("movie-id")
@@ -14,15 +14,17 @@ export default function OverviewPage() {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:8800/api/movies/find/${id}`)
-            .then(res => {
-                setMovieData(res.data);
-            })
+        console.log("mounted");
+        (async () => {
+            let { ...data } = await axios.get(`http://localhost:8800/api/movies/find/${id}`);
+            let parsedData = data.data;
+            setMovieData(parsedData);
+            console.log(movieData);
+        })()
+
     }, []);
-    console.log(movieData);
 
     function updateMovieHandler() {
-        console.log('Here');
         navigate(updateLink);
     }
 
@@ -42,8 +44,9 @@ export default function OverviewPage() {
                 <span className="pipe">|</span>
                 <span className="movie-length"> {movieData.duration} </span>
                 <p className="movie-description-overview">{movieData.description}</p>
-                <Link to={'/update/' + movieData._id}>
-                    <button className="login-button-container" onClick={updateMovieHandler} >UPDATE</button>
+                <Link calssName="update-button-container" to={'/update/' + movieData._id} style={{ textDecoration: 'none' }}>
+                    <button className="update-button" onClick={updateMovieHandler} >UPDATE</button>
+
                 </Link>
             </div>
 

@@ -1,24 +1,21 @@
 import SideNav from "./SideNav";
 import Video from "./Video";
 
-import { Routes, Route } from 'react-router-dom';
-import ReactPlayer from "react-player";
 import { useState, useEffect } from 'react';
 import axios from "axios";
-import OverviewPage from "./OverviewPage";
 
 export default function DetailsPage() {
     const [movieData, setMovieData] = useState([]);
 
     let movieId = sessionStorage.getItem("movie-id");
 
-    useEffect(async () => {
-        console.log("mounted");
-        let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
-        setMovieData(data)
-        console.log(movieData);
+    useEffect(() => {
+        (async () => {
+            console.log("mounted");
+            let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
+            setMovieData(data)
+        })();
     }, []);
-
 
     return (
         <div className="details-trailer-container">

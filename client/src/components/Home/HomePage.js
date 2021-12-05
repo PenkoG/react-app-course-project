@@ -8,17 +8,19 @@ export default function HomePage() {
     const [movies, setMovies] = useState([]);
     // const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(async () => {
-        console.log("mounted");
-        try {
-            let { data } = await axios.get("http://localhost:8800/api/movies");
-            console.log(data);
-            // setIsLoading(false);
-            setMovies(data);
-            console.log(movies);
-        } catch (err) {
-            console.log(err);
-        }
+    useEffect(() => {
+        (async () => {
+            console.log("mounted");
+            try {
+                let { data } = await axios.get("http://localhost:8800/api/movies");
+                console.log(data);
+                // setIsLoading(false);
+                setMovies(data);
+                console.log(movies);
+            } catch (err) {
+                console.log(err);
+            }
+        })()
     }, []);
 
     return (

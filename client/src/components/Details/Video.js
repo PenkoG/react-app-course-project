@@ -1,9 +1,6 @@
 import ReactPlayer from "react-player/youtube"
-import { useState, useEffect } from "react"
-import LoadingPage from "../Loading/LoadingPage";
 
 export default function Video({ movie }) {
-    console.log(movie.videoUrl);
 
     return (
         <div className="player-wrapper">

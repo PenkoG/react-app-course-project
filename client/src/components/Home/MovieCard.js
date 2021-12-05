@@ -5,7 +5,6 @@ export default function MovieCard({ movie }) {
 
     function onClickHandler() {
         sessionStorage.setItem("movie-id", movie._id);
-        sessionStorage.setItem("movie-info", movie.title)
         navigate(`details/${movie._id}`);
     }
 
