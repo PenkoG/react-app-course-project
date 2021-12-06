@@ -38,26 +38,24 @@ export default function OverviewPage() {
     }
 
     return (
-        <div className="details-overview-container">
-            <SideNav></SideNav>
+        <div className="bgr-container">
+            <div className="details-overview-container">
+                <SideNav></SideNav>
 
-            <div className="movie-image-container">
-                <img src={movie.imgUrl} className="movie-image" alt="" />
-            </div>
+                <div className="movie-image-container">
+                    <img src={movie.imgUrl} className="movie-image" alt="" />
+                </div>
 
-            <div className="movie-info-container">
-                <h1 className="movie-title">{movie.title}</h1>
-                <span className="movie-year"> year: {movie.year}</span>
-                <span className="pipe">|</span>
-                <span className="movie-genre"> {movie.genre} </span>
-                <span className="pipe">|</span>
-                <span className="movie-length"> {movie.duration} </span>
-                <p className="movie-description-overview">{movie.description}</p>
-                {buttons ? buttons : ""}
-            </div>
-
-            <div className="overview-bgr-img-container" scr="OverviewBGR.jpg" alt="">
-                <img className="overview-bgr-img" scr="OverviewBGR.jpg" alt="" width="100px" />
+                <div className="movie-info-container">
+                    <h1 className="movie-title">{movie.title}</h1>
+                    <span className="movie-year"> year: {movie.year}</span>
+                    <span className="pipe">|</span>
+                    <span className="movie-genre"> {movie.genre} </span>
+                    <span className="pipe">|</span>
+                    <span className="movie-length"> {movie.duration} </span>
+                    <p className="movie-description-overview">{movie.description}</p>
+                    {buttons ? buttons : ""}
+                </div>
             </div>
         </div>
     )

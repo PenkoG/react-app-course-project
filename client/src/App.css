@@ -151,6 +151,7 @@
 .details-overview-container{
   width: 90%;
   height: 100%;
+  padding-top: 50px;
   display: flex;
 }
 
@@ -217,28 +218,19 @@
   margin-bottom: 20px;
   }
 
-  .delete-button {
-    background-color: transparent;
-    border: 2px solid  #9b0000;
-    color: white;
-    font-size: 20px;
-    font-weight: 800;
-    padding: 13px 50px;
-    font-size: 30px;
-    cursor: pointer;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    }
-
-.overview-bgr-img-container{
-  background-color: #080000;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0%;
-  z-index: -1;
-}
+.delete-button {
+  background-color: transparent;
+  border: 2px solid  #9b0000;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 13px 50px;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  }
 /* OVERVIEW PAGE END */
 
 
@@ -411,6 +403,7 @@
   font-size: 16px;
   box-sizing: border-box;
   text-align: center;
+  color: white;
 }
 
 .register-button {
@@ -429,7 +422,7 @@ margin-top: 20px;
 margin-left: 15px;
 }
 
-.register-button button:hover{
+.register-button:hover{
 background: #9b0000;
 }
 
@@ -474,10 +467,11 @@ background-color: transparent;
   /* background: linear-gradient(to top, #232526, #414345); */
   /* background: linear-gradient(to right, #ff00cc, #333399); */
   /* background: linear-gradient(to top, #200122, #6f0000); */
-  background: linear-gradient(to top, #141e30, #243b55);
+  /* background: linear-gradient(to top, #141e30, #243b55); */
   /* background: linear-gradient(to top, #8e0e00, #1f1c18); */
   /* background: linear-gradient(to top, #ff0084, #33001b); */
   /* background: linear-gradient(to top, #870000, #190a05); */
+  background: linear-gradient(to top, #3f0525, #160138);
   
   
   position: fixed;
@@ -487,12 +481,12 @@ background-color: transparent;
   z-index: -1;
 }
 
-.register-bgr-img-container{
+/* .register-bgr-img-container{
   z-index: -2;
   position: fixed;
   width: 100%;
   top: 0%;
-}
+} */
 
 /* REGISTER END*/
 
@@ -517,7 +511,7 @@ background-color: transparent;
 
 .login-button {
   background-color: transparent;
-  border: 2px solid  #9b0000;
+  border: 2px solid  #fff2f2;
   color: white;
   font-size: 20px;
   font-weight: 800;
@@ -530,7 +524,7 @@ background-color: transparent;
   margin-bottom: 20px;
 }
 
-.login-button button:hover{
+.login-button:hover{
   background: #9b0000;
 }
 

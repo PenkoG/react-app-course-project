@@ -49,7 +49,7 @@ export default function RegisterPage() {
                             <input className="input" name="re-password" type="password" placeholder="Repeat password:" />
                             <button className="register-button" >REGISTER</button>
 
-                            <p className="message">Already have an accout?<Link to="/login"> Login</Link></p>
+                            <p className="message">Already have an accout?<Link to="/login" style={{ "padding-left": "5px" }}> Login</Link></p>
 
                         </form>
 
@@ -57,8 +57,8 @@ export default function RegisterPage() {
                 </div>
 
                 {/* <div className="register-bgr-img-container">
-                <img className="register-bgr-img" src="registerBGR.png" alt="" />
-            </div> */}
+                    <img className="register-bgr-img" src="registerBGR.png" alt="" />
+                </div> */}
             </div>
 
 
