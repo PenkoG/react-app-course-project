@@ -1,10 +1,14 @@
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+
+import * as authService from '../../services/authService'
 
 export default function RegisterPage() {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+    const { login } = useContext(UserContext);
 
-    const onRegisterHandler = async (e) => {
+    async function onRegisterHandler(e) {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -13,10 +17,19 @@ export default function RegisterPage() {
         let email = formData.get('email');
         let password = formData.get('password');
 
+        let userData = {
+            name,
+            username,
+            email,
+            password
+        }
+
         try {
-            let result = await axios.post("http://localhost:8800/api/auth/register", { name, email, username, password });
-            // console.log(result);
-            navigate("/login");
+            authService.register(userData)
+                .then(res => {
+                    login(res.data);
+                    navigate("/");
+                })
         } catch (err) {
             console.log(err);
         }
