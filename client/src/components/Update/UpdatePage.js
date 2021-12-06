@@ -1,23 +1,17 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { UserContext } from "../../contexts/UserContext";
+import { MovieContext } from "../../contexts/MovieContext";
 
+import * as movieService from "../../services/movieService";
 
 export default function UpdatePage() {
-    const [movie, setMovie] = useState({});
-    let navigate = useNavigate();
-    let movieId = sessionStorage.getItem("movie-id");
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext);
+    const { movie, onMovieDetail } = useContext(MovieContext);
 
-    useEffect(() => {
-        (async () => {
-            console.log("mounted");
-            let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`)
-            setMovie(data)
-        })();
-    }, []);
-
-    console.log(movie);
-
+    const movieId = movie["_id"];
+    const accessToken = user.accessToken;
 
     const onUpdateHandler = async (e) => {
         e.preventDefault();
@@ -38,12 +32,15 @@ export default function UpdatePage() {
             videoUrl,
             year,
             genre,
-            duration
+            duration,
+            ownerId: user['_id']
         }
 
-        let result = await axios.put(`http://localhost:8800/api/movies/${movieId}`, data);
-        // console.log(result);
-        navigate(`/details/${movieId}/overview`);
+        movieService.updateOne(data, movieId, accessToken)
+            .then(res => {
+                onMovieDetail(res.data)
+                navigate(`/details/${movieId}/overview`);
+            })
     }
 
 

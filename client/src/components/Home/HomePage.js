@@ -1,22 +1,20 @@
-import axios from "axios";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react';
 
-import MovieCard from "./MovieCard";
+import MovieCard from './MovieCard';
+import * as movieService from "../../services/movieService";
 
 export default function HomePage() {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            // console.log("mounted");
-            try {
-                let { data } = await axios.get("http://localhost:8800/api/movies");
-                setMovies(data);
-                // console.log(movies);
-            } catch (err) {
-                console.log(err);
-            }
-        })()
+        try {
+            movieService.getAll()
+                .then(res => {
+                    setMovies(res.data);
+                })
+        } catch (error) {
+            console.log(error);
+        }
     }, []);
 
     return (

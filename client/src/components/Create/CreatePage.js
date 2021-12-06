@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
+import * as movieService from "../../services/movieService";
 
 export default function CreatePage() {
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
+    const accessToken = user.accessToken;
 
     const onCreateHandler = async (e) => {
         e.preventDefault();
@@ -20,20 +21,19 @@ export default function CreatePage() {
         let genre = formData.get('genre');
         let duration = formData.get('duration');
 
-        let data = { title, description, imgUrl, videoUrl, year, genre, duration }
+        let ownerId = user._id;
+
+        let data = { title, description, imgUrl, videoUrl, year, genre, duration, ownerId }
 
         try {
-            await axios.post("http://localhost:8800/api/movies", data, {
-                headers: {
-                    'X-Authorization': `${user.accessToken}`
-                }
-            });
-            navigate("/");
+            movieService.createOne(data, accessToken)
+                .then(res => {
+                    navigate("/");
+                })
         } catch (err) {
             console.log(err);
         }
     };
-
 
     return (
         <>
