@@ -5,7 +5,6 @@ import { MovieContext } from "../../contexts/MovieContext"
 
 export default function Video() {
     const { movie } = useContext(MovieContext);
-    console.log(movie.videoUrl);
 
     return (
         <div className="player-wrapper">

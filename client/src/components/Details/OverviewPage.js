@@ -1,10 +1,11 @@
 import SideNav from "./SideNav"
+import { deleteOne } from "../../services/movieService";
 
 import { useContext } from 'react';
+import { useNavigate } from "react-router";
 import { Link } from 'react-router-dom';
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";
-import { useNavigate } from "react-router";
 
 
 export default function OverviewPage() {
@@ -12,8 +13,16 @@ export default function OverviewPage() {
     const { user } = useContext(UserContext)
     const { movie } = useContext(MovieContext)
 
-    async function deleteHandler() {
-        navigate('/')
+    const deleteHandler = async () => {
+        try {
+            deleteOne(movie['_id'], user.accessToken)
+                .then(res => {
+                    navigate('/')
+                })
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
     return (
@@ -33,7 +42,7 @@ export default function OverviewPage() {
                 <span className="movie-length"> {movie.duration} </span>
                 <p className="movie-description-overview">{movie.description}</p>
                 {user.isAuthenticated ?
-                    <Link calssName="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
+                    <Link className="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
                         <button className="update-button" >UPDATE</button>
                     </Link>
                     : ""}

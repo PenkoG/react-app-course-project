@@ -27,8 +27,8 @@ export default function Header({
             <div className="right-container">
                 <p>Wellcome, {username}</p>
                 {/* <div className="login-button-container">
-                        <NavLink to="/login">LogIn</NavLink>
-                    </div> */}
+                    <NavLink to="/login">LogIn</NavLink>
+                </div> */}
             </div>
         </nav>
     )
