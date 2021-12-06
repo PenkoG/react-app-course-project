@@ -1,39 +1,37 @@
 import SideNav from "./SideNav";
 import Video from "./Video";
+import * as movieService from "../../services/movieService";
 
-import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
-import { useState, useEffect } from 'react';
-import axios from "axios";
+import { useEffect, useContext } from 'react';
+import { MovieContext } from "../../contexts/MovieContext";
 
 export default function DetailsPage() {
-    const { user } = useContext(UserContext);
-    const [movieData, setMovieData] = useState([]);
+    const { movie, onMovieDetail } = useContext(MovieContext);
 
     let movieId = sessionStorage.getItem("movie-id");
 
     useEffect(() => {
-        (async () => {
-            // console.log("mounted");
-            let { data } = await axios.get(`http://localhost:8800/api/movies/find/${movieId}`, { headers: { 'X-Authorization': `${user.accessToken}` } });
-            setMovieData(data)
-        })();
+        try {
+            movieService.getOne(movieId)
+                .then(res => {
+                    onMovieDetail(res.data)
+                })
+        } catch (error) {
+            console.log(error);
+        }
     }, []);
 
     return (
         <div className="details-trailer-container">
             <div className="details-trailer-container">
                 <div className="main-container">
-
-                    <Video movie={movieData} />
+                    {movie.videoUrl ? <Video /> : ""}
 
                     <SideNav></SideNav>
-
                 </div>
 
                 <div className="footer-container">
                     <div className="footer">
-
                         <div className="socialmedia-icons-container">
                             <i className="fab fa-facebook"></i>
                             <i className="fab fa-instagram"></i>
@@ -46,9 +44,8 @@ export default function DetailsPage() {
                         </div>
 
                         <div className="footer-logos-container">
-                            {/* <img src='companyLogos.png' alt="" width="250px" /> */}
+                            <img src='companyLogos.png' alt="" width="" />
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import ReactPlayer from "react-player/youtube"
 
-export default function Video({ movie }) {
+import { MovieContext } from "../../contexts/MovieContext"
+
+export default function Video() {
+    const { movie } = useContext(MovieContext);
+    console.log(movie.videoUrl);
 
     return (
         <div className="player-wrapper">

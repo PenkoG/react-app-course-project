@@ -1,32 +1,19 @@
 import SideNav from "./SideNav"
 
-import { useEffect, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from "../../contexts/UserContext";
-import axios from "axios";
+import { MovieContext } from "../../contexts/MovieContext";
+import { useNavigate } from "react-router";
+
 
 export default function OverviewPage() {
-    const { user } = useContext(UserContext)
-    const [movieData, setMovieData] = useState([]);
     const navigate = useNavigate();
+    const { user } = useContext(UserContext)
+    const { movie } = useContext(MovieContext)
 
-    let id = sessionStorage.getItem("movie-id")
-    let updateLink = `/update/${id}`
-
-
-    useEffect(() => {
-        // console.log("mounted");
-        (async () => {
-            let { ...data } = await axios.get(`http://localhost:8800/api/movies/find/${id}`);
-            let parsedData = data.data;
-            setMovieData(parsedData);
-            // console.log(movieData);
-        })()
-
-    }, []);
-
-    function updateMovieHandler() {
-        navigate(updateLink);
+    async function deleteHandler() {
+        navigate('/')
     }
 
     return (
@@ -34,22 +21,24 @@ export default function OverviewPage() {
             <SideNav></SideNav>
 
             <div className="movie-image-container">
-                <img src={movieData.imgUrl} className="movie-image" alt="" />
+                <img src={movie.imgUrl} className="movie-image" alt="" />
             </div>
 
             <div className="movie-info-container">
-                <h1 className="movie-title">{movieData.title}</h1>
-                <span className="movie-year"> year: {movieData.year}</span>
+                <h1 className="movie-title">{movie.title}</h1>
+                <span className="movie-year"> year: {movie.year}</span>
                 <span className="pipe">|</span>
-                <span className="movie-genre"> {movieData.genre} </span>
+                <span className="movie-genre"> {movie.genre} </span>
                 <span className="pipe">|</span>
-                <span className="movie-length"> {movieData.duration} </span>
-                <p className="movie-description-overview">{movieData.description}</p>
+                <span className="movie-length"> {movie.duration} </span>
+                <p className="movie-description-overview">{movie.description}</p>
                 {user.isAuthenticated ?
-                    <Link calssName="update-button-container" to={'/update/' + movieData._id} style={{ textDecoration: 'none' }}>
-                        <button className="update-button" onClick={updateMovieHandler} >UPDATE</button>
+                    <Link calssName="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
+                        <button className="update-button" >UPDATE</button>
                     </Link>
                     : ""}
+
+                <button className="delete-button" onClick={deleteHandler}>DELETE</button>
             </div>
 
             <div className="overview-bgr-img-container" scr="OverviewBGR.jpg" alt="">
