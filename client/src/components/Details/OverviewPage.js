@@ -7,22 +7,34 @@ import { Link } from 'react-router-dom';
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";
 
-
 export default function OverviewPage() {
     const navigate = useNavigate();
-    const { user } = useContext(UserContext)
-    const { movie } = useContext(MovieContext)
+    const { user } = useContext(UserContext);
+    const { movie } = useContext(MovieContext);
+
+    const userId = user['_id'];
+    const movieOwnerId = movie['ownerId'];
+
+    let buttons = "";
 
     const deleteHandler = async () => {
         try {
-            deleteOne(movie['_id'], user.accessToken)
+            deleteOne(userId, user.accessToken)
                 .then(res => {
                     navigate('/')
                 })
         } catch (error) {
             console.log(error);
         }
+    }
 
+    if (userId === movieOwnerId) {
+        buttons = (<>
+            <Link className="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
+                <button className="update-button" >UPDATE</button>
+            </Link>
+            <button className="delete-button" onClick={deleteHandler}>DELETE</button>
+        </>)
     }
 
     return (
@@ -41,13 +53,7 @@ export default function OverviewPage() {
                 <span className="pipe">|</span>
                 <span className="movie-length"> {movie.duration} </span>
                 <p className="movie-description-overview">{movie.description}</p>
-                {user.isAuthenticated ?
-                    <Link className="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
-                        <button className="update-button" >UPDATE</button>
-                    </Link>
-                    : ""}
-
-                <button className="delete-button" onClick={deleteHandler}>DELETE</button>
+                {buttons ? buttons : ""}
             </div>
 
             <div className="overview-bgr-img-container" scr="OverviewBGR.jpg" alt="">
