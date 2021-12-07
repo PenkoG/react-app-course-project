@@ -5,7 +5,7 @@ import './App.css';
 import Header from './components/Header';
 import LoginPage from './components/Login/LoginPage';
 import RegisterPage from './components/Register/RegisterPage';
-import MyListPage from './components/MyList/MyListPage';
+import MyListPage from './components/MyCollection/MyCollectionPage';
 import HomePage from './components/Home/HomePage';
 import DetailsPage from './components/Details/DetailsPage';
 import OverviewPage from "./components/Details/OverviewPage";

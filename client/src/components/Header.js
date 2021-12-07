@@ -15,22 +15,19 @@ export default function Header({
         </nav>
     )
 
-    let userNavigation = (
+    let userNavigation = (<>
         <nav className="nav-container">
             <ul className="nav-ul" >
                 <NavLink className="nav-link" to="/" >HOME</NavLink>
-                <NavLink className="nav-link" to="/my-list" >MY LIST</NavLink>
+                <NavLink className="nav-link" to="/my-list" >MY COLECTIONS</NavLink>
                 <NavLink className="nav-link" to="/create" >CREATE</NavLink>
-                <NavLink className="nav-link" to="/logout" >Logout</NavLink>
-
+                <NavLink className="nav-link logout-link" to="/logout" >Logout</NavLink>
             </ul>
-            <div className="right-container">
-                <p>Wellcome, {username}</p>
-                {/* <div className="login-button-container">
-                    <NavLink to="/login">LogIn</NavLink>
-                </div> */}
-            </div>
         </nav>
+        <div className="right-container">
+            <span className="wellcome-span">Wellcome, {username}</span>
+        </div>
+    </>
     )
 
     return (

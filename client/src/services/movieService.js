@@ -8,6 +8,11 @@ export const getAll = async () => {
     return await axios.get("http://localhost:8800/api/movies");
 }
 
+export const getMyMovies = async (userId) => {
+    return await axios.get(`http://localhost:8800/api/movies/my-movies/${userId}`);
+    // axios.get()
+}
+
 export const deleteOne = async (movieId, accessToken) => {
     return await axios.delete(`http://localhost:8800/api/movies/${movieId}`, { headers: { 'token': accessToken } });
 }
