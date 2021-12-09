@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import * as movieService from "../../services/movieService";
-// import Badges from "../Badges/Badges";
+import Background from "../Background/Background";
+import styles from "./Create.module.css";
 
 export default function CreatePage() {
     const navigate = useNavigate();
@@ -38,28 +39,22 @@ export default function CreatePage() {
 
     return (
         <>
-            <div className="bgr-container">
-                <div className="create-container">
-                    <div className="create-form-container">
-                        <h2>CREATE MOVIE</h2>
-                        <form className="create-form" onSubmit={onCreateHandler}>
-                            <input className="input" name="title" type="text" placeholder="Movie title:" />
-                            <input className="input" name="description" type="text" placeholder="Description:" />
-                            <input className="input" name="imgUrl" type="text" placeholder="imgUrl:" />
-                            <input className="input" name="videoUrl" type="text" placeholder="videoUrl:" />
-                            <input className="input" name="year" type="text" placeholder="year:" />
-                            <input className="input" name="genre" type="text" placeholder="genre:" />
-
-                            {/* <div>
-                                <span style={{ color: "white", display: "flex", justifyContent: "center", marginTop: "20px", marginBottom: "10px" }}>choose movie genre:</span>
-                                {genres.map(x => <Badges value={x} genres={genres} setGenres={setGenres} />)}
-                            </div> */}
-                            <input className="input" name="duration" type="text" placeholder="duration:" />
-                            <button className="create-button" >CREATE</button>
-                        </form>
-                    </div>
+            <div className={styles.create_container}>
+                <div className={styles.create_form_container}>
+                    <h2>CREATE MOVIE</h2>
+                    <form className={styles.create_form} onSubmit={onCreateHandler}>
+                        <input className={styles.input} name="title" type="text" placeholder="Movie title:" />
+                        <input className={styles.input} name="description" type="text" placeholder="Description:" />
+                        <input className={styles.input} name="imgUrl" type="text" placeholder="imgUrl:" />
+                        <input className={styles.input} name="videoUrl" type="text" placeholder="videoUrl:" />
+                        <input className={styles.input} name="year" type="text" placeholder="year:" />
+                        <input className={styles.input} name="genre" type="text" placeholder="genre:" />
+                        <input className={styles.input} name="duration" type="text" placeholder="duration:" />
+                        <button className={styles.btn} >CREATE</button>
+                    </form>
                 </div>
             </div>
+            <Background />
         </>
     )
 }

@@ -1,39 +1,40 @@
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
+import HeaderCSS from "./Header.module.css";
 
 export default function Header() {
     const { user } = useContext(UserContext);
 
     let guestNavigation = (
-        <nav className="nav-container">
-            <ul className="nav-ul" >
-                <NavLink className="nav-link" to="/" >HOME</NavLink>
-                <NavLink className="nav-link" to="/login" >LOGIN</NavLink>
-                <NavLink className="nav-link" to="/register" >REGISTER</NavLink>
+        <nav className={HeaderCSS.nav_container}>
+            <ul className={HeaderCSS.nav_ul} >
+                <NavLink className={HeaderCSS.nav_link} to="/" >HOME</NavLink>
+                <NavLink className={HeaderCSS.nav_link} to="/login" >LOGIN</NavLink>
+                <NavLink className={HeaderCSS.nav_link} to="/register" >REGISTER</NavLink>
             </ul>
         </nav>
     )
 
     let userNavigation = (<>
-        <nav className="nav-container">
-            <ul className="nav-ul" >
-                <NavLink className="nav-link" to="/" >HOME</NavLink>
-                <NavLink className="nav-link" to="/my-list" >MY COLLECTIONS</NavLink>
-                <NavLink className="nav-link" to="/create" >CREATE</NavLink>
-                <NavLink className="nav-link logout-link" to="/logout" >Logout</NavLink>
+        <nav className={HeaderCSS.nav_container}>
+            <ul className={HeaderCSS.nav_ul} >
+                <NavLink className={HeaderCSS.nav_link} to="/" >HOME</NavLink>
+                <NavLink className={HeaderCSS.nav_link} to="/my-list" >MY COLLECTIONS</NavLink>
+                <NavLink className={HeaderCSS.nav_link} to="/create" >CREATE</NavLink>
+                <NavLink className={HeaderCSS.logout_link} to="/logout" >LOGOUT</NavLink>
             </ul>
         </nav>
-        <div className="right-container">
-            <span className="wellcome-span">Wellcome, {user.username}</span>
+        <div className={HeaderCSS.right_container}>
+            <span className={HeaderCSS.wellcome_span}>Wellcome, {user.username}</span>
         </div>
     </>
     )
 
     return (
-        <header className="header-container">
+        <header className={HeaderCSS.header_container}>
 
-            <div className="logo-container">
+            <div className={HeaderCSS.logo_container}>
                 <NavLink to="/">
                     <img src="./logo.png" alt="" width="200px" />
                 </NavLink>
@@ -41,11 +42,6 @@ export default function Header() {
             {user.isAuthenticated
                 ? userNavigation
                 : guestNavigation}
-
-            <div className="top-shadow">
-                <img src="topGradient.png" alt="" />
-            </div>
-
         </header >
     )
 }

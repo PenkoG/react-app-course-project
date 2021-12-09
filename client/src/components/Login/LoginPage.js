@@ -1,8 +1,10 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useContext } from "react";
 
-import { UserContext } from "../../contexts/UserContext";
 import * as authService from "./../../services/authService";
+import { UserContext } from "../../contexts/UserContext";
+import Background from "../Background/Background";
+import styles from "./Login.module.css";
 
 export default function LoginPage() {
     const { login } = useContext(UserContext);
@@ -30,21 +32,20 @@ export default function LoginPage() {
 
     return (
         <>
-            <div className="bgr-container">
-                <div className="login-container">
-                    <div className="form-container">
-                        <h2>LOGIN</h2>
-                        <form className="login-form" method="POST" onSubmit={onLoginHandler}>
-                            <input className="input" type="text" placeholder="Username:" name="username" />
-                            <input className="input" type="password" placeholder="Password:" name="pass" />
+            <div className={styles.login_container}>
+                <div className={styles.form_container}>
+                    <h2>LOGIN</h2>
+                    <form method="POST" onSubmit={onLoginHandler}>
+                        <input className={styles.input} type="text" placeholder="Username:" name="username" />
+                        <input className={styles.input} type="password" placeholder="Password:" name="pass" />
 
-                            <button className="login-button">LOGIN</button>
+                        <button className={styles.btn}>LOGIN</button>
 
-                            <p className="message">Don't have an accout? <Link to="/register" style={{ "paddingLeft": "5px" }}> Register</Link></p>
-                        </form>
-                    </div>
+                        <p className={styles.message}>Don't have an accout? <Link to="/register" style={{ "paddingLeft": "5px" }}> Register</Link></p>
+                    </form>
                 </div>
             </div>
+            <Background />
         </>
     )
 }

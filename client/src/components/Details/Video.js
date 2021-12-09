@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import ReactPlayer from "react-player/youtube"
+import styles from "./Video.module.css";
 
 import { MovieContext } from "../../contexts/MovieContext"
 
@@ -7,7 +8,7 @@ export default function Video() {
     const { movie } = useContext(MovieContext);
 
     return (
-        <div className="player-wrapper">
+        <div className={styles.player_wrapper}>
             <ReactPlayer url={movie.videoUrl}
                 muted={true}
                 playing={true}

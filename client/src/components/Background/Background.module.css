@@ -1,0 +1,20 @@
+.bgr_container{
+
+    /* background: linear-gradient(to right, #4b6cb7, #182848); */
+    /* background: linear-gradient(to top, #16222a, #3a6073); */
+    /* background: linear-gradient(0deg, rgba(15,32,39,1) 0%, rgba(32,58,67,1) 50%, rgba(44,83,100,1) 100%); */
+    /* background: linear-gradient(to top, #232526, #414345); */
+    /* background: linear-gradient(to right, #ff00cc, #333399); */
+    /* background: linear-gradient(to top, #200122, #6f0000); */
+    /* background: linear-gradient(to top, #141e30, #243b55); */
+    /* background: linear-gradient(to top, #8e0e00, #1f1c18); */
+    /* background: linear-gradient(to top, #ff0084, #33001b); */
+    /* background: linear-gradient(to top, #870000, #190a05); */
+    background: linear-gradient(to top, #3f0525, #160138);
+  
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    z-index: -1;
+  }

@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import styles from "./SideNav.module.css";
 
 export default function SideNav() {
 
@@ -8,12 +9,12 @@ export default function SideNav() {
 
     return (
         <div className="side-nav-container">
-            <ul className="side-nav">
-                <li className="side-nav-trailer" >
-                    <NavLink to={trailerLink} className="side-nav-trailer">trailer</NavLink>
+            <ul className={styles.side_nav}>
+                <li>
+                    <NavLink to={trailerLink} className={styles.side_nav_trailer}>trailer</NavLink>
                 </li>
-                <li className="side-nav-overview" >
-                    <NavLink to={overviewLink} className="side-nav-overview">overview</NavLink>
+                <li className={styles.side_nav_overview} >
+                    <NavLink to={overviewLink} className={styles.side_nav_overview}>overview</NavLink>
                 </li>
             </ul>
         </div>

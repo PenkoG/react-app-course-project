@@ -1,0 +1,25 @@
+.side_nav {
+    list-style: none;
+    font-size: 16px;
+    position: fixed;
+    top:48%;
+    right: 2%;
+    text-align: right;
+    z-index:2
+}
+
+.side_nav li{
+  padding-bottom: 10px;
+  text-decoration: none;
+  color:white;
+}
+
+.side_nav_trailer {
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.514);
+}
+
+.side_nav_overview{
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.514);
+}

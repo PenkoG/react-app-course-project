@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router";
 
+import styles from "./MovieCard.module.css";
+
 export default function MovieCard({ movie }) {
     let navigate = useNavigate()
 
@@ -10,22 +12,14 @@ export default function MovieCard({ movie }) {
 
     return (
 
-        <div className="movie-card-container" onClick={onClickHandler}>
-            <div className="image-container">
+        <div className={styles.movie_container} onClick={onClickHandler}>
+            <div className={styles.image_container}>
                 <img src={movie.imgUrl} alt="img" />
             </div>
 
-            <h2 className="movie-headline">{movie.title}</h2>
-            <p className="movie-description">{movie.description.substring(0, 205)}</p>
+            <h2 className={styles.movie_headline}>{movie.title}</h2>
+            <p className={styles.movie_description}>{movie.description.substring(0, 205)}</p>
 
-            <div className="rating-container">
-                <p>Rating:</p>
-                <i className="far fa-star"></i>
-                <i className="far fa-star"></i>
-                <i className="far fa-star"></i>
-                <i className="far fa-star"></i>
-                <i className="far fa-star"></i>
-            </div>
         </div>
     )
 }

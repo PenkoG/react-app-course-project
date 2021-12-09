@@ -2,9 +2,11 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { Navigate } from "react-router";
 
+import * as movieService from "../../services/movieService";
 import NoMoviesPage from "../MyCollection/NoMoviesPage";
 import MovieCard from "../Home/MovieCard";
-import * as movieService from "../../services/movieService";
+import Background from "../Background/Background";
+import styles from "./MyCollection.module.css";
 
 export default function MyCollectionPage() {
     const { user } = useContext(UserContext);
@@ -24,19 +26,18 @@ export default function MyCollectionPage() {
     let areMovies = Boolean(myMovies.length);
 
     let moviesCardElement = (
-        <div className="movies-container">
+        <div className={styles.movies_container}>
             {myMovies.map(x => <MovieCard key={x._id} movie={x} />)}
         </div>)
 
     return (
         <>
-            <div className="bgr-container">
-                <div className="page-container">
-                    <div className="my-movies-container">
-                        {areMovies ? moviesCardElement : NoMoviesPage}
-                    </div>
+            <div className={styles.page}>
+                <div className={styles.my_movies_container}>
+                    {areMovies ? moviesCardElement : NoMoviesPage}
                 </div>
             </div>
+            <Background />
         </>
     )
 }

@@ -1,5 +1,7 @@
-import SideNav from "./SideNav"
 import * as movieService from "../../services/movieService";
+import styles from "./Overview.module.css";
+import SideNav from "./SideNav"
+import Background from "../Background/Background";
 
 import { useContext } from 'react';
 import { useNavigate } from "react-router";
@@ -33,32 +35,33 @@ export default function OverviewPage() {
     if (userId === movieOwnerId) {
         buttons = (<>
             <Link className="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
-                <button className="update-button" >UPDATE</button>
+                <button className={styles.update} >UPDATE</button>
             </Link>
-            <button className="delete-button" onClick={deleteHandler}>DELETE</button>
+            <button className={styles.delete} onClick={deleteHandler}>DELETE</button>
         </>)
     }
 
     return (
         <div className="bgr-container">
-            <div className="details-overview-container">
+            <div className={styles.details_overview_container}>
                 <SideNav></SideNav>
 
-                <div className="movie-image-container">
-                    <img src={movie.imgUrl} className="movie-image" alt="" />
+                <div className={styles.image_container}>
+                    <img src={movie.imgUrl} className={styles.movie_image} alt="" />
                 </div>
 
-                <div className="movie-info-container">
-                    <h1 className="movie-title">{movie.title}</h1>
-                    <span className="movie-year"> year: {movie.year}</span>
-                    <span className="pipe">|</span>
-                    <span className="movie-genre"> {movie.genre} </span>
-                    <span className="pipe">|</span>
-                    <span className="movie-length"> {movie.duration} </span>
-                    <p className="movie-description-overview">{movie.description}</p>
+                <div className={styles.info}>
+                    <h1 className={styles.title}>{movie.title}</h1>
+                    <span className={styles.year}> year: {movie.year}</span>
+                    <span className={styles.pipe}>|</span>
+                    <span className={styles.genre}> {movie.genre} </span>
+                    <span className={styles.pipe}>|</span>
+                    <span className={styles.length}> {movie.duration} </span>
+                    <p className={styles.description}>{movie.description}</p>
                     {buttons ? buttons : ""}
                 </div>
             </div>
+            <Background />
         </div>
     )
 }

@@ -1,0 +1,36 @@
+.container{
+    position: fixed;
+    bottom: 1%;
+    width: 100%;
+  }
+  
+  .footer{
+    display: flex;
+  }
+  
+  .socialmedia{
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .socialmedia i {
+    padding-left: 30px;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .copyrights {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer_images{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 30px;
+  }

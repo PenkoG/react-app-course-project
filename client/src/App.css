@@ -328,6 +328,7 @@
   display: inline;   
   text-align: center;
   box-shadow: 4px 4px 10px  rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .movie-headline{
@@ -402,7 +403,7 @@
 }
 
 .form-container{
-  width: 280px;  
+  width: 300px;  
   padding: 40px;
   background-color: rgba(255, 250, 250, 0.1);
   box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px 0 rgba(0, 0, 0, 0.01);
@@ -492,27 +493,17 @@ background-color: transparent;
   /* background: linear-gradient(to top, #ff0084, #33001b); */
   /* background: linear-gradient(to top, #870000, #190a05); */
   background: linear-gradient(to top, #3f0525, #160138);
-  
-  
+
   position: fixed;
   height: 100%;
   width: 100%;
   top: 0%;
   z-index: -1;
 }
-
-/* .register-bgr-img-container{
-  z-index: -2;
-  position: fixed;
-  width: 100%;
-  top: 0%;
-} */
-
 /* REGISTER END*/
 
 
 /* LOGIN START */
-
 .login-container {
   width: 100%;
   height: 800px;
@@ -554,6 +545,7 @@ background-color: transparent;
 .page-container{
   width: auto;
   height: 840px;
+  margin-top: 150px;
 }
 
 .my-movies-container{
@@ -582,79 +574,67 @@ background-color: transparent;
   align-self: center;
 }
 
-/* .movies-container{
-  display: inline-flex;
-  width: 100%;
-  height: 100%;
-} */
-
-/* .movie-card-container{
-  background-color: rgba(255, 191, 191, 0.1);
-  border-radius: 20px;
-  width: 20%;
-  margin: 0 15px 0 15px;
-  display: inline-flexbox;   
-  text-align: center;
-  box-shadow: 4px 4px 10px  rgba(0, 0, 0, 0.1);
-}
-
-.movie-headline{
-  color: white;
-  margin: 10px 20px 10px 20px;
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.movie-description{
-  color: white;
-  font-size: 14px;
-  margin: 0 20px 0 20px;
-}
-
-.my-list-container{
-  width: 98%;
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.rating-container{
-  color: white;
-  margin: 10px 20px 10px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.rating-container i{
-  padding: 0 0 0 5px;
-}
-
-.image-container{
-  border-radius: 20px;
-  width: 94%;
-  height: 400px;
-  margin: auto;
-  margin-top: 8px;
-  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
-}
-
-.image-container img{
-  border-radius: 15px;
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-
-}
-
-.loading-container{
-  background-color: #9b0000;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 /* MY COLLECTION */
+
+
+/* CREATE START */
+.create-container {
+  width: 100%;
+  height: 900px;
+}
+
+.create-form-container{
+  width: 400px;  
+  padding: 40px;
+  margin-left: 35%;
+  margin-top: 10%;
+  height: max-content;
+  text-align: center;
+  justify-self: center;
+  background-color: rgba(255, 250, 250, 0.1);
+  box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.2), -10px -10px 20px 0 rgba(0, 0, 0, 0.01);
+}
+
+.create-form-container h2{
+  color: white;
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+  margin:auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-form input {
+  display: flex;
+  max-width: 500px;
+  margin: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+.create-button{
+  background-color: transparent;
+  border: 2px solid  #fff2f2;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 13px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.create-button:hover{
+  background: #9b0000;
+}
+/* CREATE END */
 
 
 /* 404 START */
@@ -682,5 +662,36 @@ background-color: transparent;
   margin: auto;
   margin-top: 600px;
 }
-
 /* 404 END */
+
+
+/* BADGES START */
+.badge-clicked{
+  color: #251d02;
+  background-color: rgb(219, 206, 27);
+  border-radius: 30px;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 70px;
+  justify-content: center;
+  justify-self: center;
+  margin: 5px 5px 5px 5px;
+  display: inline-flex;
+}
+.badge-notClicked{
+  color: #f3dbe8;
+  background-color: rgb(27, 110, 219);
+  border-radius: 30px;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  width: 70px;
+  justify-content: center;
+  justify-self: center;
+  margin: 5px 5px 5px 5px;
+  display: inline-flex;
+}
+/* BADGES END */
