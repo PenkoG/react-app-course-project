@@ -1,5 +1,5 @@
 import SideNav from "./SideNav"
-import { deleteOne } from "../../services/movieService";
+import * as movieService from "../../services/movieService";
 
 import { useContext } from 'react';
 import { useNavigate } from "react-router";
@@ -13,14 +13,16 @@ export default function OverviewPage() {
     const { movie } = useContext(MovieContext);
 
     const userId = user['_id'];
+    const movieId = movie['_id'];
     const movieOwnerId = movie['ownerId'];
 
     let buttons = "";
 
     const deleteHandler = async () => {
         try {
-            deleteOne(userId, user.accessToken)
+            movieService.deleteOne(movieId, user.accessToken)
                 .then(res => {
+                    console.log(res);
                     navigate('/')
                 })
         } catch (error) {

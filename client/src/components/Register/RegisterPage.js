@@ -24,15 +24,14 @@ export default function RegisterPage() {
             password
         }
 
-        try {
-            authService.register(userData)
-                .then(res => {
-                    login(res.data);
-                    navigate("/");
-                })
-        } catch (err) {
-            console.log(err);
-        }
+        authService.register(userData)
+            .then(res => {
+                login(res.data);
+                navigate("/");
+            }).catch((err) => {
+                alert(`Wrong password or username`);
+                console.log(err);
+            })
     };
 
     return (
@@ -49,19 +48,12 @@ export default function RegisterPage() {
                             <input className="input" name="re-password" type="password" placeholder="Repeat password:" />
                             <button className="register-button" >REGISTER</button>
 
-                            <p className="message">Already have an accout?<Link to="/login" style={{ "padding-left": "5px" }}> Login</Link></p>
+                            <p className="message">Already have an accout?<Link to="/login" style={{ "paddingLeft": "5px" }}> Login</Link></p>
 
                         </form>
-
                     </div>
                 </div>
-
-                {/* <div className="register-bgr-img-container">
-                    <img className="register-bgr-img" src="registerBGR.png" alt="" />
-                </div> */}
             </div>
-
-
         </>
     )
 }
