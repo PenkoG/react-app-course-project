@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import * as movieService from "../../services/movieService";
+// import Badges from "../Badges/Badges";
 
 export default function CreatePage() {
     const navigate = useNavigate();
@@ -38,18 +39,23 @@ export default function CreatePage() {
     return (
         <>
             <div className="bgr-container">
-                <div className="register-container">
-                    <div className="form-container">
+                <div className="create-container">
+                    <div className="create-form-container">
                         <h2>CREATE MOVIE</h2>
-                        <form className="register-form" onSubmit={onCreateHandler}>
+                        <form className="create-form" onSubmit={onCreateHandler}>
                             <input className="input" name="title" type="text" placeholder="Movie title:" />
                             <input className="input" name="description" type="text" placeholder="Description:" />
                             <input className="input" name="imgUrl" type="text" placeholder="imgUrl:" />
                             <input className="input" name="videoUrl" type="text" placeholder="videoUrl:" />
                             <input className="input" name="year" type="text" placeholder="year:" />
                             <input className="input" name="genre" type="text" placeholder="genre:" />
+
+                            {/* <div>
+                                <span style={{ color: "white", display: "flex", justifyContent: "center", marginTop: "20px", marginBottom: "10px" }}>choose movie genre:</span>
+                                {genres.map(x => <Badges value={x} genres={genres} setGenres={setGenres} />)}
+                            </div> */}
                             <input className="input" name="duration" type="text" placeholder="duration:" />
-                            <button className="register-button" >CREATE</button>
+                            <button className="create-button" >CREATE</button>
                         </form>
                     </div>
                 </div>
