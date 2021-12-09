@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";

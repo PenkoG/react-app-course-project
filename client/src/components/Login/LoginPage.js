@@ -40,7 +40,7 @@ export default function LoginPage() {
 
                             <button className="login-button">LOGIN</button>
 
-                            <p className="message">Don't have an accout? <Link to="/register" style={{ "padding-left": "5px" }}> Register</Link></p>
+                            <p className="message">Don't have an accout? <Link to="/register" style={{ "paddingLeft": "5px" }}> Register</Link></p>
                         </form>
                     </div>
                 </div>

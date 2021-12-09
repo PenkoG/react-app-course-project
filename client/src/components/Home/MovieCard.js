@@ -9,8 +9,8 @@ export default function MovieCard({ movie }) {
     }
 
     return (
-        <div className="movie-card-container">
 
+        <div className="movie-card-container" onClick={onClickHandler}>
             <div className="image-container">
                 <img src={movie.imgUrl} alt="img" />
             </div>
@@ -26,7 +26,6 @@ export default function MovieCard({ movie }) {
                 <i className="far fa-star"></i>
                 <i className="far fa-star"></i>
             </div>
-            <button onClick={onClickHandler}>Details</button>
         </div>
     )
 }

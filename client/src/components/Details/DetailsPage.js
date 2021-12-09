@@ -19,7 +19,7 @@ export default function DetailsPage() {
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    });
 
     return (
         <div className="details-trailer-container">
