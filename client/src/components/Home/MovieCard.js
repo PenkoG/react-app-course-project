@@ -7,7 +7,8 @@ export default function MovieCard({ movie }) {
 
     function onClickHandler() {
         sessionStorage.setItem("movie-id", movie._id);
-        navigate(`details/${movie._id}`);
+        navigate(`details/${movie._id}`, { replace: true });
+
     }
 
     return (
