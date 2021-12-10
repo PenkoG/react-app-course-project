@@ -1,6 +1,5 @@
 import SideNav from "./SideNav";
 import Video from "./Video";
-import Footer from "../Footer/Footer";
 import styles from "./Details.module.css";
 import * as movieService from "../../services/movieService";
 

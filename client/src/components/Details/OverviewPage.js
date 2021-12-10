@@ -42,7 +42,7 @@ export default function OverviewPage() {
     }
 
     return (
-        <div className="bgr-container">
+        <div>
             <div className={styles.details_overview_container}>
                 <SideNav></SideNav>
 

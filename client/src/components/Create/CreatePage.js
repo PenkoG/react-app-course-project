@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import * as movieService from "../../services/movieService";
@@ -7,7 +7,6 @@ import Background from "../Background/Background";
 import styles2 from "../Pill/Pill.module.css";
 import styles from "./Create.module.css";
 
-const genresArr = ["Action", "Adventure", "Drama", "Comedy", "Thriller", "Mystery", "Criminal", "Animation", "Family", "Sci-fi"];
 let selectedGenres = [];
 
 export default function CreatePage() {
@@ -68,7 +67,10 @@ export default function CreatePage() {
                         <input className={styles.input} name="year" type="text" placeholder="Year" />
                         <textarea className={styles.input, styles.textarea} name="description" type="text" placeholder="Description" />
                         <input className={styles.duration} name="duration" type="text" placeholder="Duration" />
-                        <span className={styles.genre_span}>Choose movie genres</span>
+                        <span className={styles.genre_span}>Select movie genre</span>
+                        <span className={styles.arrow}>
+                            <i className="fas fa-angle-down"></i>
+                        </span>
                         <div className={styles.genre_container}>
                             <label className={styles2.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />

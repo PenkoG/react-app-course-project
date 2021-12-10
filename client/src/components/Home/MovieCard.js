@@ -20,6 +20,11 @@ export default function MovieCard({ movie }) {
 
             <h2 className={styles.movie_headline}>{movie.title}</h2>
             <p className={styles.movie_description}>{movie.description.substring(0, 205)}</p>
+            <div className={styles.rating_container}></div>
+            <span className={styles.rating}>
+                rating: 7.8/10
+                <i class="fas fa-meteor">
+                </i></span>
 
         </div>
     )

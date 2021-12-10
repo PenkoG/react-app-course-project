@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";
@@ -8,7 +8,6 @@ import styles from "./Update.module.css";
 import styles2 from "../Pill/Pill.module.css";
 import Background from "../Background/Background";
 
-const genresArr = ["Action", "Adventure", "Drama", "Comedy", "Thriller", "Mystery", "Criminal", "Animation", "Family", "Sci-fi"];
 let selectedGenres = [];
 
 export default function UpdatePage() {
