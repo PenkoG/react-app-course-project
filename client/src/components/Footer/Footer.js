@@ -12,12 +12,12 @@ export default function Footer() {
                         <i className="fab fa-imdb"></i>
                     </div>
 
-                    <div classNam={styles.copyrights}>
+                    <div className={styles.copyrights}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, dolore &copy;</p>
                     </div>
 
                     <div className={styles.footer_images}>
-                        <img src='companyLogos.png' alt="" width="" />
+                        <img src='brand_logo.png' alt="" width="250px" />
                     </div>
                 </div>
             </div>
