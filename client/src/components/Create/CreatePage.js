@@ -14,7 +14,7 @@ export default function CreatePage() {
     const { user } = useContext(UserContext);
     const accessToken = user.accessToken;
 
-    const onCreateHandler = async (e) => {
+    const onCreateHandler = (e) => {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
@@ -30,16 +30,14 @@ export default function CreatePage() {
 
         let data = { title, description, imgUrl, videoUrl, year, genre, duration, ownerId }
 
-        try {
-            movieService.createOne(data, accessToken)
-                .then(res => {
-                    selectedGenres = [];
-                    navigate("/");
-                })
-        } catch (err) {
-            selectedGenres = [];
-            console.log(err);
-        }
+        movieService.createOne(data, accessToken)
+            .then(res => {
+                selectedGenres = [];
+                navigate("/");
+            }).catch((err) => {
+                console.log(err);
+                alert(`All fields are required`);
+            })
     };
 
     const onClickHandler = (e) => {
@@ -51,7 +49,6 @@ export default function CreatePage() {
         } else {
             selectedGenres.push(genre);
         }
-
         console.log(selectedGenres);
     }
 
