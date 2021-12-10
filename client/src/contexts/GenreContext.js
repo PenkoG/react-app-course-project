@@ -13,12 +13,12 @@ export const GenreProvider = ({
         console.log(selectedGenres);
     }
 
-    const onSubmit = () => {
+    const resertGenres = () => {
         setSelectedGenres([])
     }
 
     return (
-        <GenreContext.Provider value={{ selectedGenres, onChange, onSubmit }} >
+        <GenreContext.Provider value={{ selectedGenres, onChange, resertGenres }} >
             {children}
         </GenreContext.Provider  >
 

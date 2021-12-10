@@ -1,20 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../contexts/UserContext";
-import uniqid from 'uniqid';
 
 import * as movieService from "../../services/movieService";
 import Background from "../Background/Background";
-import Pill from "../Pill/Pill";
+import styles2 from "../Pill/Pill.module.css";
 import styles from "./Create.module.css";
-import { GenreContext } from "../../contexts/GenreContext";
 
 const genresArr = ["Action", "Adventure", "Drama", "Comedy", "Thriller", "Mystery", "Criminal", "Animation", "Family", "Sci-fi"];
+let selectedGenres = [];
 
 export default function CreatePage() {
     const navigate = useNavigate();
     const { user } = useContext(UserContext);
-    const { selectedGenres, onSubmit } = useContext(GenreContext);
     const accessToken = user.accessToken;
 
     const onCreateHandler = async (e) => {
@@ -27,7 +25,6 @@ export default function CreatePage() {
         let videoUrl = formData.get('videoUrl');
         let year = formData.get('year');
         let genre = selectedGenres.join(" - ");
-        console.log(genre);
         let duration = formData.get('duration');
 
         let ownerId = user._id;
@@ -37,13 +34,27 @@ export default function CreatePage() {
         try {
             movieService.createOne(data, accessToken)
                 .then(res => {
-                    onSubmit();
+                    selectedGenres = [];
                     navigate("/");
                 })
         } catch (err) {
+            selectedGenres = [];
             console.log(err);
         }
     };
+
+    const onClickHandler = (e) => {
+        let genre = e.target.nextSibling.textContent;
+
+        if (selectedGenres.includes(genre)) {
+            let index = selectedGenres.indexOf(genre);
+            selectedGenres.splice(index, 1);
+        } else {
+            selectedGenres.push(genre);
+        }
+
+        console.log(selectedGenres);
+    }
 
     return (
         <>
@@ -56,11 +67,49 @@ export default function CreatePage() {
                         <input className={styles.input} name="videoUrl" type="text" placeholder="Trailer url" />
                         <input className={styles.input} name="year" type="text" placeholder="Year" />
                         <textarea className={styles.input, styles.textarea} name="description" type="text" placeholder="Description" />
-                        {/* <input className={styles.input} name="genre" type="text" placeholder="genre:" /> */}
                         <input className={styles.duration} name="duration" type="text" placeholder="Duration" />
                         <span className={styles.genre_span}>Choose movie genres</span>
                         <div className={styles.genre_container}>
-                            {genresArr.map(x => <Pill key={uniqid()} value={x} />)}
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Action</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Adventure</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Drama</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Comedy</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Thriller</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Mystery</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Criminal</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Animation</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Family</span>
+                            </label>
+                            <label className={styles2.PillList_item}>
+                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <span className={styles2.PillList_label} >Sci-fi</span>
+                            </label>
                         </div>
                         <button className={styles.btn} >CREATE</button>
                     </form>

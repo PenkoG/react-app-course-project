@@ -1,5 +1,5 @@
 import styles from './Pill.module.css'
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { GenreContext } from '../../contexts/GenreContext';
 
 let genresArr = [];
@@ -7,6 +7,7 @@ export default function Pill({
     value
 }) {
     const { onChange } = useContext(GenreContext);
+
 
     function onChangeHandler(e) {
         let genre = e.target.nextSibling.textContent;
@@ -18,9 +19,6 @@ export default function Pill({
             genresArr.push(genre);
         }
         onChange(genresArr)
-        // setSelectedGenres(genresArr);
-        // console.log(selectedGenres);
-        // return genresArr;
     }
 
     return (

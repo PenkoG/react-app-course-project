@@ -50,6 +50,9 @@
     height: 80px;
     width: 94%;
     font-size: 16px;
+    /* overflow:auto; */
+    resize: none;
+    color: white;
     text-align: center;
     border: none;
     border-radius: 20px;
