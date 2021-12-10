@@ -1,0 +1,30 @@
+
+  .PillList_item {
+    float: left;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    margin: 6px 6px 6px 6px;
+  }
+  
+  .PillList_item input[type="checkbox"] {
+    display: none;
+  }
+  
+  .PillList_item input[type="checkbox"]:checked + .PillList_label {
+    background-color: #f77062;
+    border: 1px solid #f77062;
+    color: #fff;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .PillList_label {
+    border: 1px solid #f77062;
+    border-radius: 20px;
+    color: #f77062;
+    display: block;
+    padding: 7px 28px;
+    text-decoration: none;
+  }
