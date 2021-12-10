@@ -30,7 +30,6 @@ export default function DetailsPage() {
 
                 <SideNav></SideNav>
             </div>
-            <Footer></Footer>
         </>
     )
 }

@@ -24,7 +24,8 @@ export default function HomePage() {
             <div className={styles.home_container}>
                 <div className={styles.trending_container}>
                     <h2 className={styles.trending_headline}>Trending Now</h2>
-                    <div className={styles.movies_container}>
+                    <div className={styles.movies2_container}>
+
                         {movies.map(x => <MovieCard key={x._id} movie={x} />)}
                     </div>
                 </div>

@@ -24,11 +24,9 @@ export default function Pill({
     }
 
     return (
-        <div className="tags">
-            <label className={styles.PillList_item}>
-                <input type="checkbox" name="genre" onChange={e => onChangeHandler(e)} />
-                <span className={styles.PillList_label} >{value}</span>
-            </label>
-        </div >
+        <label className={styles.PillList_item}>
+            <input type="checkbox" name="genre" onChange={e => onChangeHandler(e)} />
+            <span className={styles.PillList_label} >{value}</span>
+        </label>
     )
 }

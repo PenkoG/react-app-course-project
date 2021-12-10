@@ -1,33 +1,30 @@
 .page{
     width: auto;
     height: 840px;
-    margin-top: 150px;
+    margin-top: 30px;
   }
   
-  .my_movies_container{
+  .movies_container{
     width: 98%;
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
   }
   
-  .my-movies-headline{
+  .headline{
     color: #b3b3b3;
     font-size: 20px;
     margin-left: 20px;
-    margin-top: 100px;
   }
   
-  .no-movies{
+  .no_movies{
     height: 700px;
     display: flex;
     justify-content: center;
     align-content: center;
   }
   
-  .no-movies-h1{
+  .no_movies_h1{
     color: #fffefe;
     align-self: center;
+    margin: 50px;
   }
 
   .movies_container{

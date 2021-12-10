@@ -1,5 +1,4 @@
-
-  .PillList_item {
+.PillList_item {
     float: left;
     cursor: pointer;
     display: inline-block;
@@ -14,16 +13,16 @@
   }
   
   .PillList_item input[type="checkbox"]:checked + .PillList_label {
-    background-color: #f77062;
-    border: 1px solid #f77062;
+    background-color: #9b0000;
+    border: 1px solid #9b2400;
     color: #fff;
-    padding-right: 16px;
-    padding-left: 16px;
+    padding-right: 33px;
+    padding-left: 33px;
   }
   .PillList_label {
-    border: 1px solid #f77062;
+    border: 1px solid #9b2400;
     border-radius: 20px;
-    color: #f77062;
+    color: white;
     display: block;
     padding: 7px 28px;
     text-decoration: none;

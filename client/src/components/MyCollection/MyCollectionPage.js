@@ -34,6 +34,7 @@ export default function MyCollectionPage() {
         <>
             <div className={styles.page}>
                 <div className={styles.my_movies_container}>
+                    <h1 className={styles.headline}>My movies</h1>
                     {areMovies ? moviesCardElement : NoMoviesPage}
                 </div>
             </div>

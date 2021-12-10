@@ -1,11 +1,9 @@
 .movie_container{
-    background-color: rgba(255, 191, 191, 0.1);
     border-radius: 20px;
-    width: 24%;
-    margin: 0 10px 0 10px;
-    display: inline;   
+    margin: 0 10px 0 10px;   
     text-align: center;
-    box-shadow: 4px 4px 10px  rgba(0, 0, 0, 0.1);
+    width: 330px;
+    /* box-shadow: 4px 4px 10px  rgba(0, 0, 0, 0.1); */
     cursor: pointer;
 }
 
@@ -62,10 +60,3 @@
   font-size: 14px;
   margin: 0 20px 0 20px;
 }
-
-/* .movie_description:hover{
-  color: rgba(255, 255, 255, 0.712);
-  margin: 10px 20px 10px 20px;
-  font-size: 16px;
-  font-weight: 700;
-} */
