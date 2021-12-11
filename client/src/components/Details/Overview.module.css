@@ -31,7 +31,7 @@
   
   .description{
     color: white;
-    margin-top: 30px;
+    /* margin-top: 30px; */
   }
   
   .year{
@@ -53,6 +53,7 @@
   }
   
   .update {
+    display: inline;
     background-color: transparent;
     border: 2px solid  #9b0000;
     color: white;
@@ -61,12 +62,11 @@
     padding: 13px 50px;
     font-size: 30px;
     cursor: pointer;
-    display: flex;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin: 10px 30px 0 0;
     }
   
   .delete {
+    display: inline;
     background-color: transparent;
     border: 2px solid  #9b0000;
     color: white;
@@ -75,7 +75,4 @@
     padding: 13px 50px;
     font-size: 30px;
     cursor: pointer;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 20px;
     }

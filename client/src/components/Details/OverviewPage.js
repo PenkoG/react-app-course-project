@@ -5,7 +5,6 @@ import Background from "../Background/Background";
 
 import { useContext } from 'react';
 import { useNavigate } from "react-router";
-import { Link } from 'react-router-dom';
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";
 
@@ -21,22 +20,22 @@ export default function OverviewPage() {
     let buttons = "";
 
     const deleteHandler = async () => {
-        try {
-            movieService.deleteOne(movieId, user.accessToken)
-                .then(res => {
-                    console.log(res);
-                    navigate('/')
-                })
-        } catch (error) {
-            console.log(error);
-        }
+        movieService.deleteOne(movieId, user.accessToken)
+            .then(res => {
+                console.log(res);
+                navigate('/')
+            }).catch((error) => {
+                console.log(error);
+            })
+    }
+
+    const editHandler = () => {
+        navigate(`/update/movieId`)
     }
 
     if (userId === movieOwnerId) {
         buttons = (<>
-            <Link className="update-button-container" to={'/update/' + movie._id} style={{ textDecoration: 'none' }}>
-                <button className={styles.update} >UPDATE</button>
-            </Link>
+            <button className={styles.update} onClick={editHandler}>UPDATE</button>
             <button className={styles.delete} onClick={deleteHandler}>DELETE</button>
         </>)
     }
@@ -52,11 +51,12 @@ export default function OverviewPage() {
 
                 <div className={styles.info}>
                     <h1 className={styles.title}>{movie.title}</h1>
-                    <span className={styles.year}> year: {movie.year}</span>
+                    <span className={styles.year}>{movie.year}</span>
                     <span className={styles.pipe}>|</span>
                     <span className={styles.genre}> {movie.genre} </span>
                     <span className={styles.pipe}>|</span>
-                    <span className={styles.length}> {movie.duration} </span>
+                    <span className={styles.length}> {movie.duration}m </span>
+                    <h2 style={{ color: "white", marginTop: "30px" }}>Storyline</h2>
                     <p className={styles.description}>{movie.description}</p>
                     {buttons ? buttons : ""}
                 </div>

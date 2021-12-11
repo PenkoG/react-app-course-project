@@ -26,7 +26,7 @@ export default function Header() {
             </ul>
         </nav>
         <div className={HeaderCSS.right_container}>
-            <span className={HeaderCSS.wellcome_span}>Wellcome, {user.username}</span>
+            <span className={HeaderCSS.wellcome_span}>Welcome, {user.username}</span>
         </div>
     </>
     )

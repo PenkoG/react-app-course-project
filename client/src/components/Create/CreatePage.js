@@ -56,12 +56,12 @@ export default function CreatePage() {
         <>
             <div className={styles.create_container}>
                 <div className={styles.create_form_container}>
-                    <h2>CREATE MOVIE</h2>
+                    <h2>ADD MOVIE TO DATABASE</h2>
                     <form className={styles.create_form} onSubmit={onCreateHandler}>
                         <input className={styles.input} name="title" type="text" placeholder="Movie title" />
+                        <input className={styles.input} name="year" type="text" placeholder="Year" />
                         <input className={styles.input} name="imgUrl" type="text" placeholder="Image url" />
                         <input className={styles.input} name="videoUrl" type="text" placeholder="Trailer url" />
-                        <input className={styles.input} name="year" type="text" placeholder="Year" />
                         <textarea className={styles.input, styles.textarea} name="description" type="text" placeholder="Description" />
                         <input className={styles.duration} name="duration" type="text" placeholder="Duration" />
                         <span className={styles.genre_span}>Select movie genre</span>
