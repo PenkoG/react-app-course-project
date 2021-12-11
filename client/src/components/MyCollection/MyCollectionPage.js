@@ -12,8 +12,6 @@ export default function MyCollectionPage() {
     const { user } = useContext(UserContext);
     const [myMovies, setMyMovies] = useState([]);
 
-    let allMovies;
-
     useEffect(() => {
         movieService.getMyMovies(user["_id"])
             .then(res => {
@@ -23,22 +21,8 @@ export default function MyCollectionPage() {
 
     const onChangeHandler = (e) => {
         e.preventDefault();
-        let search = e.target.value;
-        allMovies = myMovies;
-        let result = [];
-        allMovies.forEach(x => {
-            if (x.title.toLowerCase().includes(search)) {
-                result.push(x);
-            }
-        })
-        if (search.length < 2) {
-            setMyMovies(allMovies);
-        }
-        setMyMovies(result);
-    }
 
-    const onBlurHandler = () => {
-        movieService.getMyMovies(user["_id"])
+        movieService.getByName(e.target.value)
             .then(res => {
                 setMyMovies(res.data);
             }).catch((err) => console.log(err))
@@ -59,12 +43,11 @@ export default function MyCollectionPage() {
         <>
             <div className={styles.page}>
                 <div className={styles.my_movies_container}>
-                    <p style={{ color: "white", fontSize: "50px", fontWeight: "800", backgroundColor: "red" }}>
-                        Search
-                    </p>
-                    <input type="text" name="search" placeholder="search" onChange={onChangeHandler} onBlur={onBlurHandler} />
+                    <div className={styles.search_wrapper}>
+                        <input className={styles.search} type="text" name="search" placeholder="search" onChange={onChangeHandler} />
+                    </div>
                     <h1 className={styles.headline}>My movies</h1>
-                    {areMovies ? moviesCardElement : NoMoviesPage}
+                    {areMovies ? moviesCardElement : <NoMoviesPage />}
                 </div>
             </div>
             <Background />

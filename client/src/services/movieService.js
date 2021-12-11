@@ -14,6 +14,10 @@ export const getHighestRating = async (userId) => {
     return await axios.get(`${baseUrl}/api/movies`);
 }
 
+export const getByName = async (name) => {
+    return await axios.get(`${baseUrl}/api/movies/search/${name}`);
+}
+
 export const getMyMovies = async (userId) => {
     return await axios.get(`${baseUrl}/api/movies/my-movies/${userId}`);
 }

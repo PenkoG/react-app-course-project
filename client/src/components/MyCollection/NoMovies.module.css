@@ -1,0 +1,12 @@
+.no_movies{
+    display: flex;
+    width: 100%;
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.no_movies_h1{
+    color: white;
+    font-size: 50px;
+}
