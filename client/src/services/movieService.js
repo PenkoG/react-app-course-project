@@ -10,6 +10,10 @@ export const getAll = async () => {
     return await axios.get(`${baseUrl}/api/movies`);
 }
 
+export const getHighestRating = async (userId) => {
+    return await axios.get(`${baseUrl}/api/movies`);
+}
+
 export const getMyMovies = async (userId) => {
     return await axios.get(`${baseUrl}/api/movies/my-movies/${userId}`);
 }
