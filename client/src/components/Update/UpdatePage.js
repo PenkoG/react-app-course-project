@@ -71,9 +71,9 @@ export default function UpdatePage() {
                     <h2>EDIT MOVIE</h2>
                     <form className={styles.create_form} onSubmit={onUpdateHandler}>
                         <input className={styles.input} name="title" type="text" placeholder="Movie title" defaultValue={movie.title} />
+                        <input className={styles.input} name="year" type="text" placeholder="Year" defaultValue={movie.year} />
                         <input className={styles.input} name="imgUrl" type="text" placeholder="Image url" defaultValue={movie.imgUrl} />
                         <input className={styles.input} name="videoUrl" type="text" placeholder="Trailer url" defaultValue={movie.videoUrl} />
-                        <input className={styles.input} name="year" type="text" placeholder="Year" defaultValue={movie.year} />
                         <textarea className={styles.input, styles.textarea} name="description" type="text" placeholder="Description" defaultValue={movie.description} />
                         <input className={styles.duration} name="duration" type="text" placeholder="Duration" defaultValue={movie.duration} />
                         <span className={styles.genre_span}>Choose movie genre</span>
