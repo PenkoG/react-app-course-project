@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-// import './App.css';
+import './App.css';
 import Header from './components/Header/Header';
 import LoginPage from './components/Login/LoginPage';
 import RegisterPage from './components/Register/RegisterPage';
@@ -32,6 +32,7 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/my-list" element={<MyListPage />} />
+              <Route path="/my-list/details/:id" element={<DetailsPage />} />
               <Route path="/details/:id" element={<DetailsPage />} />
               <Route path="/details/:id/overview" element={<OverviewPage />} />
               <Route path="/create" element={<CreatePage />} />
