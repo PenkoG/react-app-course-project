@@ -5,7 +5,7 @@ import { MovieContext } from "../../contexts/MovieContext";
 
 import * as movieService from "../../services/movieService";
 import styles from "./Update.module.css";
-import styles2 from "../Pill/Pill.module.css";
+import pillStyles from "../Pill/Pill.module.css";
 import Background from "../Background/Background";
 
 let selectedGenres = [];
@@ -61,8 +61,6 @@ export default function UpdatePage() {
         } else {
             selectedGenres.push(genre);
         }
-
-        console.log(selectedGenres);
     }
     return (
         <>
@@ -78,45 +76,45 @@ export default function UpdatePage() {
                         <input className={styles.duration} name="duration" type="text" placeholder="Duration" defaultValue={movie.duration} />
                         <span className={styles.genre_span}>Choose movie genre</span>
                         <div className={styles.genre_container}>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Action</span>
+                                <span className={pillStyles.PillList_label} >Action</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Adventure</span>
+                                <span className={pillStyles.PillList_label} >Adventure</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Drama</span>
+                                <span className={pillStyles.PillList_label} >Drama</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Comedy</span>
+                                <span className={pillStyles.PillList_label} >Comedy</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Thriller</span>
+                                <span className={pillStyles.PillList_label} >Thriller</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Mystery</span>
+                                <span className={pillStyles.PillList_label} >Mystery</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Criminal</span>
+                                <span className={pillStyles.PillList_label} >Criminal</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Animation</span>
+                                <span className={pillStyles.PillList_label} >Animation</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Family</span>
+                                <span className={pillStyles.PillList_label} >Family</span>
                             </label>
-                            <label className={styles2.PillList_item}>
+                            <label className={pillStyles.PillList_item}>
                                 <input type="checkbox" name="genre" onClick={onClickHandler} />
-                                <span className={styles2.PillList_label} >Sci-fi</span>
+                                <span className={pillStyles.PillList_label} >Sci-fi</span>
                             </label>
                         </div>
                         <button className={styles.btn} >EDIT</button>
