@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 import * as authService from "./../../services/authService";
 import { UserContext } from "../../contexts/UserContext";
+import formExtractor from "../../utils/formProcessing";
 import Background from "../Background/Background";
 import styles from "./Login.module.css";
 
@@ -13,14 +14,10 @@ export default function LoginPage() {
     async function onLoginHandler(e) {
         e.preventDefault();
 
-        let formData = new FormData(e.currentTarget);
-        let username = formData.get("username");
-        let password = formData.get("pass");
+        let userInputs = formExtractor("login", e);
+        e.currentTarget.reset();
 
-        e.currentTarget.username.value = "";
-        e.currentTarget.pass.value = "";
-
-        authService.login(username, password)
+        authService.login(userInputs.username, userInputs.password)
             .then((authData) => {
                 login(authData);
                 navigate("/");
@@ -37,7 +34,7 @@ export default function LoginPage() {
                     <h2>LOGIN</h2>
                     <form method="POST" onSubmit={onLoginHandler}>
                         <input className={styles.input} type="text" placeholder="Username:" name="username" />
-                        <input className={styles.input} type="password" placeholder="Password:" name="pass" />
+                        <input className={styles.input} type="password" placeholder="Password:" name="password" />
 
                         <button className={styles.btn}>LOGIN</button>
 
