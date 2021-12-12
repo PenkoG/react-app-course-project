@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 
 import * as authService from "./../../services/authService";
 import { UserContext } from "../../contexts/UserContext";
-import formExtractor from "../../helpers/formProcessing";
+import userFormExtractor from "../../helpers/userFormExtractor";
 import Background from "../Background/Background";
 import styles from "./Login.module.css";
 import BasicAlert from "../Alerts/BasicAlert";
@@ -16,7 +16,7 @@ export default function LoginPage() {
     async function onLoginHandler(e) {
         e.preventDefault();
 
-        let userInputs = formExtractor("login", e);
+        let userInputs = userFormExtractor("login", e);
         e.currentTarget.reset();
 
         authService.login(userInputs.username, userInputs.password)

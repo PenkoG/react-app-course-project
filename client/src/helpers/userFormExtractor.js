@@ -1,4 +1,4 @@
-export default function formExtractor(type, e) {
+export default function userFormExtractor(type, e) {
 
     let formData = new FormData(e.currentTarget);
 

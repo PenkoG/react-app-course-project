@@ -3,12 +3,11 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
 import * as authService from '../../services/authService'
-import formExtractor from '../../helpers/formProcessing';
+import userFormExtractor from '../../helpers/userFormExtractor';
 import BasicAlert from '../Alerts/BasicAlert';
 import Background from "../Background/Background";
 import styles from "./Register.module.css";
-
-const regex = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+import { REGEX } from "../../constants/constants";
 
 export default function RegisterPage() {
     const navigate = useNavigate();
@@ -18,9 +17,9 @@ export default function RegisterPage() {
     function onRegisterHandler(e) {
         e.preventDefault();
 
-        let userInputs = formExtractor("register", e);
+        let userInputs = userFormExtractor("register", e);
 
-        if (userInputs.password != userInputs.repass) {
+        if (userInputs.password !== userInputs.repass) {
             e.currentTarget.reset();
             alert("passwords mismatch")
             return;
@@ -54,9 +53,9 @@ export default function RegisterPage() {
             setError('')
         }
 
-        if (inputType === "email" && (!input.match(regex))) {
+        if (inputType === "email" && (!input.match(REGEX))) {
             setError("Invalid email!");
-        } else if (inputType === "email" && (input.match(regex))) {
+        } else if (inputType === "email" && (input.match(REGEX))) {
             setError('')
         }
     }
