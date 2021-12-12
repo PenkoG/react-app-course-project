@@ -9,9 +9,9 @@ import styles from "./Login.module.css";
 import BasicAlert from "../Alerts/BasicAlert";
 
 export default function LoginPage() {
-    const { login } = useContext(UserContext);
-    const [error, setError] = useState('');
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const { login } = useContext(UserContext);
 
     async function onLoginHandler(e) {
         e.preventDefault();
@@ -34,8 +34,6 @@ export default function LoginPage() {
 
         if ((input.length < 3 || input.length > 12)) {
             setError("Username should be between 3 and 12 charecters!");
-        } else {
-            setError('')
         }
     }
 

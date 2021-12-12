@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import * as movieService from "../../services/movieService";
@@ -40,7 +40,7 @@ export default function CreatePage() {
             })
     };
 
-    const onClickHandler = (e) => {
+    const onPillClickHandler = (e) => {
         let genre = e.target.nextSibling.textContent;
 
         if (selectedGenres.includes(genre)) {
@@ -70,43 +70,43 @@ export default function CreatePage() {
                         </span>
                         <div className={styles.genre_container}>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Action</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Adventure</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Drama</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Comedy</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Thriller</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Mystery</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Criminal</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Animation</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Family</span>
                             </label>
                             <label className={pillStyles.PillList_item}>
-                                <input type="checkbox" name="genre" onClick={onClickHandler} />
+                                <input type="checkbox" name="genre" onClick={onPillClickHandler} />
                                 <span className={pillStyles.PillList_label} >Sci-fi</span>
                             </label>
                         </div>
