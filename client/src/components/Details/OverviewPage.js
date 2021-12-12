@@ -2,11 +2,13 @@ import * as movieService from "../../services/movieService";
 import styles from "./Overview.module.css";
 import SideNav from "./SideNav"
 import Background from "../Background/Background";
+import RatingComponent from "../Rating/Rating";
 
 import { useContext } from 'react';
 import { useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import { MovieContext } from "../../contexts/MovieContext";
+
 
 export default function OverviewPage() {
     const navigate = useNavigate();
@@ -58,6 +60,7 @@ export default function OverviewPage() {
                     <span className={styles.length}> {movie.duration}m </span>
                     <h2 style={{ color: "white", marginTop: "30px" }}>Storyline</h2>
                     <p className={styles.description}>{movie.description}</p>
+                    <RatingComponent movieRating={movie.rating}></RatingComponent>
                     {buttons ? buttons : ""}
                 </div>
             </div>

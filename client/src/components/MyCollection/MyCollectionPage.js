@@ -19,17 +19,24 @@ export default function MyCollectionPage() {
             }).catch((err) => console.log(err))
     }, [])
 
+    if (!user.isAuthenticated) {
+        return (<Navigate to="/login" />)
+    }
+
     const onChangeHandler = (e) => {
         e.preventDefault();
 
-        movieService.getByName(e.target.value)
-            .then(res => {
-                setMyMovies(res.data);
-            }).catch((err) => console.log(err))
-    }
-
-    if (!user.isAuthenticated) {
-        return (<Navigate to="/login" />)
+        if (e.target.value === "") {
+            movieService.getMyMovies(user["_id"])
+                .then(res => {
+                    setMyMovies(res.data);
+                }).catch((err) => console.log(err))
+        } else {
+            movieService.getByName(e.target.value)
+                .then(res => {
+                    setMyMovies(res.data);
+                }).catch((err) => console.log(err))
+        }
     }
 
     let areMovies = Boolean(myMovies.length);
