@@ -1,5 +1,6 @@
 import RecentSection from "./RecentSection";
-import RatingSection from "./RatingSection";
+import ActionSection from "./ActionSection";
+import DramaSection from "./DramaSection";
 import Background from "../Background/Background";
 import styles from "./Home.module.css";
 
@@ -8,7 +9,8 @@ export default function HomePage() {
         <>
             <div className={styles.home_wrapper}>
                 <RecentSection />
-                <RatingSection />
+                <ActionSection />
+                <DramaSection />
             </div>
             <Background />
         </>
