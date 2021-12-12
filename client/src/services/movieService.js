@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const baseUrl = "https://course-custom-server.herokuapp.com";
+const testUrl = "http://localhost:8800"
 
 export const getOne = async (movieId) => {
     return await axios.get(`${baseUrl}/api/movies/find/${movieId}`);
@@ -20,6 +21,10 @@ export const getByName = async (name) => {
 
 export const getMyMovies = async (userId) => {
     return await axios.get(`${baseUrl}/api/movies/my-movies/${userId}`);
+}
+
+export const getByGenre = async (genre) => {
+    return await axios.get(`${testUrl}/api/movies/${genre}`);
 }
 
 export const deleteOne = async (movieId, accessToken) => {
