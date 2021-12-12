@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const baseUrl = "https://course-custom-server.herokuapp.com";
-const testUrl = "http://localhost:8800"
 
 export const getOne = async (movieId) => {
     return await axios.get(`${baseUrl}/api/movies/find/${movieId}`);
@@ -11,9 +10,9 @@ export const getAll = async () => {
     return await axios.get(`${baseUrl}/api/movies`);
 }
 
-export const getHighestRating = async (userId) => {
-    return await axios.get(`${baseUrl}/api/movies`);
-}
+// export const getHighestRating = async (userId) => {
+//     return await axios.get(`${baseUrl}/api/movies`);
+// }
 
 export const getByName = async (name) => {
     return await axios.get(`${baseUrl}/api/movies/search/${name}`);
@@ -24,7 +23,7 @@ export const getMyMovies = async (userId) => {
 }
 
 export const getByGenre = async (genre) => {
-    return await axios.get(`${testUrl}/api/movies/${genre}`);
+    return await axios.get(`${baseUrl}/api/movies/${genre}`);
 }
 
 export const deleteOne = async (movieId, accessToken) => {
@@ -38,3 +37,7 @@ export const createOne = async (data, accessToken) => {
 export const updateOne = async (data, movieId, accessToken) => {
     return await axios.put(`${baseUrl}/api/movies/${movieId}`, data, { headers: { 'token': accessToken } });
 };
+
+// export const updateUserRating = async (rating, movieId, userId) => {
+//     return await axios.put(`${baseUrl}/api/movies/${movieId}/rating/${rating}`, userId);
+// };

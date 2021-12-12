@@ -12,7 +12,8 @@ export const MovieProvider = ({ children }) => {
         year: '',
         genre: '',
         duration: '',
-        ownerId: ''
+        ownerId: '',
+        rating: 0
     });
 
     const onMovieDetail = (movieData) => {
